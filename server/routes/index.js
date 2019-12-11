@@ -7,6 +7,7 @@ const {
   login,
   logout,
   profile,
+  upload
 } = require ('../controllers/auth.controller')
 
 const { isLoggedIn, isNotLoggedIn, isConnected} = require('../middlewares/auth.middlewares');
@@ -21,6 +22,7 @@ router.post('/signup', signup)
 router.get('/signup',(req,res,netx)  => {
   res.status(200).json({msg: 'signup'})
 });
+
 
 
 router.post('/login', passport.authenticate('local'), login)

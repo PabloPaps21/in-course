@@ -8,19 +8,23 @@ exports.createInvest = async(req, res, next) => {
   const invest = await Invesment.create({
     quantity, proyectId
   });
+  const oldproject = await Project.findById(proyectId);
+
+  await Project.findByIdAndUpdate(proyectId, { actual: oldproject.actual += quantity });
+
   res.status(200).json(invest)
 }
 
 //obtener todas las inversiones
 exports.getInvestments = async (req, res) => {
-  const investments = await Invesment.find();
+  const investments = await Invesment.findOne({ investorId: req.user._id }); 
   res.status(200).json({ investments })
 }
 
 //detalle inversion
 exports.investDetail = async (req, res) => {
   const { id } = req.params;
-  const invest = await Invesment.findById(id).populate("investorId");
+  const invest = await Invesment.findById(id);
   res.status(200).json(invest);
 };
 

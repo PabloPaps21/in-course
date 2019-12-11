@@ -17,7 +17,24 @@ const projecSchema = new Schema(
     },
     total: {
         type: Number
-    }
+    },
+    actual:{
+      type:Number,
+      default: 0
+    },
+    status:{
+      type: String, 
+      enum: ["Active", "Inactive"],
+      default: "Active"
+    },
+    grade:{
+      type: Number,
+      default: 6
+    },
+    academic: [{
+      type: String,
+      default: "https://cdn5.dibujos.net/dibujos/pintar/diploma-escolar.png"
+    }]
   }
 )
 

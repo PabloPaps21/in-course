@@ -19,16 +19,11 @@ const userSchema = new Schema (
     },
     role: {
       type: String, 
-      required: true,
       enum: ["Student", "Investor"],
       default: "Student"
     },
-    academic: [{
-      type: String,
-      required: true
-    }],
     aboutMe:{
-      type:String,
+      type:String
     }
   },
   {
@@ -36,7 +31,6 @@ const userSchema = new Schema (
     versionKey: false
   }
 )
-
 
 userSchema.plugin(passportLocalMongoose, {usernameField: "email"});
 

@@ -7,7 +7,6 @@ exports.signup = async (req, res, next) => {
   return res.status(201).json({ user })
 }
 
-
 exports.signupGet = (req, res) => res.render("/signup");
 
 
