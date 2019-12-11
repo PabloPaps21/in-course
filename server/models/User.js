@@ -24,7 +24,15 @@ const userSchema = new Schema (
     },
     aboutMe:{
       type:String
-    }
+    },
+    misInversiones:[{
+      type: Schema.Types.ObjectId,
+      ref: 'Investment'
+    }],
+    misProyectos:[{
+      type: Schema.Types.ObjectId,
+      ref: 'Project'
+    }]
   },
   {
     timestamps: true,

@@ -56,12 +56,15 @@ app.use(cookieParser());
 
 
 const index = require('./routes/index');
-const projectRoutes = require('./routes/project.Routes')
-const investorRoutes = require('./routes/investorRoutes')
+const projectRoutes = require('./routes/project.Routes');
+const investRoutes = require('./routes/investRoutes');
+const studentRoutes = require('./routes/studentRoutes');
+const investorRoutes = require('./routes/investorRoutes');
 
 app.use('/',index);
-app.use('/project', projectRoutes);
-app.use('/invest', investorRoutes)
-
+app.use('/api', projectRoutes);
+app.use('/api', investRoutes);
+app.use('/api', studentRoutes);
+app.use('/api', investorRoutes);
 
 module.exports = app;

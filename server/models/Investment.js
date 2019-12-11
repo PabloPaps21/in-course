@@ -14,7 +14,7 @@ const investmentSchema = new Schema (
     quantity: {
       type: Number
     },
-    proyectId: {
+    projectId: {
       type: Schema.Types.ObjectId,
       ref:"Project"
     }

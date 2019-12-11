@@ -3,11 +3,11 @@ const router = express.Router();
 const catchErrors = require('../middlewares/catchErrors');
 
  const {
-  myInvestList
- } = require ('../controllers/investor.controller');
+  projectList
+ } = require ('../controllers/student.controller');
 
 const { isLoggedIn } = require('../middlewares/auth.middlewares');
 
-router.get('/investor', isLoggedIn, catchErrors(myInvestList));
+router.get('/student', isLoggedIn, catchErrors(projectList));
 
 module.exports = router;
