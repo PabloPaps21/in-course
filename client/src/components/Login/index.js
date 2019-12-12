@@ -17,8 +17,8 @@ export default class LoginContainer extends React.Component {
       <MyContext.Consumer>
         { context => (
           <StyledLoginForm onSubmit={e => {
-            context.handleLogin(e, () => {
-              this.props.history.push('/profile')
+            context.handleLogin(e, (path) => {
+              this.props.history.push(path)
             });
           }} 
           >
@@ -40,7 +40,7 @@ export default class LoginContainer extends React.Component {
               onChange={e => context.handleInput(e, 'loginForm')}
             />
 
-          <button type="primary" htmltype = "submit">
+          <button htmltype = "submit">
             Login
           </button>
           

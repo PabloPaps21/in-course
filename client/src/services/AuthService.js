@@ -14,7 +14,7 @@ const AUTH_SERVICE = {
   login: data => {
     return service.post('/login', data)
   },
-  profile: () => {
+  getUser: () => {
     return service.get('/profile')
   },
   logout: () => {

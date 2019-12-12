@@ -108,7 +108,7 @@ export const StyleProfile = styled.div`
     justify-content: space-around;
     align-items: center;
     flex-direction:row;
-    width: 40%;
+    width: 100%;
     height:500px;
     /*background-color: #FFF;*/
     background-image: url('./oval-bg.png');
@@ -117,6 +117,7 @@ export const StyleProfile = styled.div`
     background-size: cover;
     margin-top: 150px;
     padding: 0 50px;
+    box-sizing: border-box;
     & h1 {
         color: #638165;
         font-weight:500;
@@ -157,16 +158,17 @@ export const StyleProfile = styled.div`
     border-radius: 5px;
   }
   & div:nth-child(1) {
-    
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 50%;
   }
   & div:nth-child(2) {
-    
     width: 50%;   
 }
 `;
 
-export const StyledLoginForm = styled.div`
+export const StyledLoginForm = styled.form`
   display: flex;
   align-items: flex-start;
   flex-direction:row;
@@ -227,3 +229,45 @@ export const StyledNavbar = styled.nav`
     color: #0f4c81;
   }
 `
+export const FormAddProject = styled.form`
+  background-color: coral;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  width: 60%;
+  
+  
+  input{
+    width:100%;
+    height:40px;
+  }
+  & .description {
+    height:90px;
+    background-color:cyan;
+  }
+  button {
+    margin-top: 20px;
+    height:30px;
+    width: 60%;
+    border-radius: 5px;
+    border: 1px solid #c0e3be;
+    background-color: #c0e3be;
+  }
+`;
+
+export const backBtn = styled.button`
+  width:60px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #f5b87a;
+  background-color:#f5b87a;
+`;
+
+export const FormAddInvest = styled.form`
+  background-color: coral;
+  display:flex;
+  justify-content:center;
+  flex-direction:column;
+  width: 60%;
+  
+`;

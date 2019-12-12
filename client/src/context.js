@@ -27,7 +27,7 @@ class MyProvider extends Component {
       AUTH_SERVICE.getUser()
       .then(( { data }) => {
         this.setState({loggedUser: true, user: data.user})
-        Swal.fire(`Welcomeback ${data.user.name}`, '', 'success')
+        Swal.fire(`Welcomeback ${this.state.formSignup.name}`, '', 'success')
       })
       .catch(err => console.log(err))
     }
@@ -49,9 +49,16 @@ class MyProvider extends Component {
   handleLogin = (e, cb)=> {
     e.preventDefault()
     AUTH_SERVICE.login(this.state.loginForm)
-    .then(({ data }) => {
-      this.setState({ loggedUser : true, user: data.user })
-      cb()
+    .then(({ data }) => { 
+      console.log(data.user.role);
+      if(data.user.role === 'Student'){
+        console.log('ya llegue')
+        return cb('/student')
+      } else if (data.user.role === 'Investor'){
+        this.setState({ loggedUser : true, user: data.user })
+        return cb('/investor')
+        
+      }
     })
     .catch(err => {
       Swal.fire('Algo se rompió', 'error')
