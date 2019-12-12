@@ -18,6 +18,9 @@ function Navbar(props) {
               <NavLink exact to="/signup" activeClassName="navbar-active">
                 Signup
               </NavLink>
+              <NavLink exact to="/allprojects" activeClassName="navbar-active">
+                Projects
+              </NavLink>
               {!context.loggedUser && (
                 <NavLink exact to="/login" activeClassName="navbar-active">
                   Login

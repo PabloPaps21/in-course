@@ -271,3 +271,14 @@ export const FormAddInvest = styled.form`
   width: 60%;
   
 `;
+
+export const ProjectCards = styled.div`
+  width: 40%;
+  height: 500px;
+  margin: 5% auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
+`;

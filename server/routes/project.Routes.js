@@ -14,9 +14,7 @@ const { isLoggedIn, isNotLoggedIn, isConnected} = require('../middlewares/auth.m
 
 router.post('/project', isLoggedIn, catchErrors(createProject));
 
-router.get('/project', (req, res, next) => {
-  res.status(200).json({msg: 'todo chido'})
-});
+
 
 //lista de proyectos
 router.get('/project', isLoggedIn, catchErrors(getProjects))

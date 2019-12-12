@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleProfile } from '../styled-components/components';
 import { Link } from 'react-router-dom'
+import { MyContext } from '../../context';
 
 export default class ProfileStudent extends Component {
   state = {
@@ -11,11 +12,14 @@ export default class ProfileStudent extends Component {
     const { profile } = this.state
     console.log(profile)
     return (
-      <StyleProfile>
+      <MyContext.Consumer>
+        {context =><StyleProfile>
         <div>
-          <h1>Student</h1>
+          <h1>Student: {context.user.name}</h1>
         </div>
-      </StyleProfile>
+      </StyleProfile>}
+      </MyContext.Consumer>
+      
       
     )
   }
