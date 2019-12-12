@@ -12,9 +12,8 @@ class MyProvider extends Component {
           email: '',
           password: '',
           phone: '',
-          role: '',
-          academic:'',
-          aboutMe:''
+          aboutMe:'',
+          role: ''
       },
       loginForm: {
           email:'',
@@ -44,7 +43,7 @@ class MyProvider extends Component {
   handleSignup = async e => {
     e.preventDefault()
     AUTH_SERVICE.signup(this.state.formSignup)
-    Swal.fire(`Welcome &{data.user.name}`, 'User created', 'success')
+    Swal.fire(`Welcome ${this.state.formSignup.name}`, 'User created', 'success')
   }
 
   handleLogin = (e, cb)=> {

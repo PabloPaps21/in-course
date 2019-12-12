@@ -22,37 +22,35 @@ export default class LoginContainer extends React.Component {
             });
           }} 
           >
-          <input
-                  value={context.loginForm.email}
-                  type="Email"
-                  placeholder="Email"
-                  name="email"
-                  onChange={e => context.handleInput(e, 'loginForm')}
-                />
-              <br/>
-              <br/>
-              <label htmlFor="password">Password</label>
-              <br/>
-              <input
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                onChange={e => context.handleInput(e, 'loginForm')}
-                value={context.loginForm.password}
-                />
-                <br/>
-              <br/>
-              <button type="primary" htmlType="submit">
-                  Login
-                </button>
+          <div>
+            <input
+              name="email"
+              placeholder="e-mail"
+              type="email"
+              required
+              value={context.loginForm.email}
+              onChange={e => context.handleInput(e,'loginForm')}
+            />
+            <input
+              name="password"
+              placeholder="Password"
+              type="password"
+              required
+              value={ context.loginForm.password }
+              onChange={e => context.handleInput(e, 'loginForm')}
+            />
 
-            <p>if you dont have a account yet, you can create your account <Link to="/signup">here</Link></p>
-
-            
+          <button type="primary" htmltype = "submit">
+            Login
+          </button>
+          
+            <p>if you dont have a account yet, you can create your account <Link to="/signup">here</Link></p>  
+            </div>
           </StyledLoginForm>
         )}
       </MyContext.Consumer>
     )
   }
 }//class
+
 LoginContainer.contextType = MyContext

@@ -6,6 +6,7 @@ export const StyledHome = styled.div`
     display: flex;
     align-items: flex-start;
     flex-direction:column;
+    justify-content: center;
     width: 40%;
     height:500px;
     /*background-color: #FFF;*/
@@ -14,7 +15,10 @@ export const StyledHome = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
     margin-top: 150px;
+    margin:0 auto;
     padding: 0 50px;
+    border: 1px solid black;
+    left:50px;
     & h1 {
         color: #638165;
         font-weight:500;
@@ -52,14 +56,12 @@ export const StyledHome = styled.div`
     font-weight: 300;
     }
 `;
-
-
 export const StyledSignupForm = styled.form`
     display: flex;
     align-items: flex-start;
     flex-direction:row;
     justify-content: space-evenly;
-    width: 40%;
+    width: 80%;
     height:500px;
     /*background-color: #FFF;*/
     background-image: url('./oval-bg.png');
@@ -69,7 +71,8 @@ export const StyledSignupForm = styled.form`
     margin-top: 150px;
     padding: 0 50px;
     input {
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom:20px;
     border: 1px solid #f6f6f6;
     border-radius: 5px;
     width: 80%;
@@ -78,6 +81,7 @@ export const StyledSignupForm = styled.form`
   }
   label{
     margin-top:10px;
+    margin-bottom:10px
   }
   button {
     margin-top: 20px;
@@ -86,6 +90,9 @@ export const StyledSignupForm = styled.form`
     border-radius: 5px;
     border: 1px solid #c0e3be;
     background-color: #c0e3be;
+  }
+  .radio {
+    width: 50px;
   }
   & div:nth-child(1) {
     
@@ -204,12 +211,13 @@ export const StyledLoginForm = styled.div`
 
 export const StyledNavbar = styled.nav`
   width: 100vw;
-  height: 7vh;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   padding: 10px;
   box-sizing: border-box;
+  background-color: #48689a;
   & a {
     padding: 5px;
     color: black;

@@ -3,6 +3,9 @@ import { MyContext  } from '../../context';
 import { StyledSignupForm } from '../styled-components/components';
 
 export default function SignupContainer(props) {
+
+
+
   return(
     <MyContext.Consumer>
     {context => (
@@ -11,95 +14,67 @@ export default function SignupContainer(props) {
       <StyledSignupForm onSubmit={e => {
         context.handleSignup(e)
         props.history.push('/login')
-      }}>
-
+        }}
+      >
+          
         <div>
-        <h1> Sig up</h1>
-        <label htmlFor="name">Name</label>
-          <br/>
+        <h1> Sign up</h1>
           <input
-              value={context.formSignup.name}
-              type="Text"
-              placeholder="Name"
               name="name"
-              onChange={e => context.handleInput(e, 'formSignup')}
-            />
-        <label htmlFor="email">Email</label>
-          <br/>
-          <input
-              value={context.formSignup.email}
-              type="Email"
-              placeholder="Email"
-              name="email"
-              onChange={e => context.handleInput(e, 'formSignup')}
-            />
-          <br/>
-          <br/>
-          <label htmlFor="password">Password</label>
-          <br/>
-          <input
-              name="password"
-              type="password"
-              placeholder="Password"
-              value={context.formSignup.password}
-              onChange={e => context.handleInput(e, 'formSignup')}
-            />
-            <br/>
-          <label htmlFor="text">Phone</label>
-          <br/>
-          <input
-              value={context.formSignup.phone}
+              placeholder="Name"
               type="text"
-              placeholder="Phone"
-              name="phone"
+              required
+              value={context.formSignup.name}
               onChange={e => context.handleInput(e, 'formSignup')}
             />
-          <br/>
-          <label htmlFor="text">aboutMe</label>
-          <br/>
           <input
-              value={context.formSignup.course}
-              type="text"
-              placeholder="aboutMe"
-              name="aboutMe"
-              onChange={e => context.handleInput(e, 'formSignup')}
-            />
-          <br/>
-          <label htmlFor="text">academic</label>
-          <br/>
+            name="email"
+            placeholder="e-mail"
+            type="email"
+            required
+            value={context.formSignup.email}
+            onChange={e => context.handleInput(e,'formSignup')}
+          />
           <input
-              value={context.formSignup.course}
-              type="file"
-              placeholder="academic"
-              name="academic"
-              onChange={e => context.handleInput(e, 'formSignup')}
-            />
-          <br/>
-          <button type="primary" htmlType="submit">
-              Create the Account
-            </button>
+            name="password"
+            placeholder="Password"
+            type="password"
+            required
+            value={ context.formSignup.password }
+            onChange={e => context.handleInput(e, 'formSignup')}
+          />
+          <input
+            name="phone"
+            placeholder="Phone"
+            type="text"
+            value={ context.formSignup.phone}
+            onChange={e => context.handleInput(e, 'formSignup')}
+          />
+          <input className="radio" type="radio" name="role" value="Student" onChange={e => context.handleInput(e, 'formSignup')} /> Student
+          <input className="radio" type="radio" name="role" value="Investor"  onChange={e => context.handleInput(e, 'formSignup')}/> Investor
 
+          {context.formSignup.role === 'Student' ? (
+            <input 
+                name="aboutMe"
+                placeholder="aboutMe"
+                type= "text"
+                value={ context.formSignup.aboutMe}
+                onChange={e => context.handleInput(e, 'formSignup')}
+              />
+              
+          ): "" }
+           
+            
+      
           
 
+          <button type="primary" htmltype = "submit">
+            Signup
+          </button>
+       
         </div>
-
-      
-
-            <div>
-        <h1>Hello!!</h1>
-        <h2> Welcome to IronProfile</h2>
-
-
-        <small> If you signup, you agree with all our
-        terms and conditions where we onChange
-        do whatever we want with the data!</small>
-      </div>
-    </StyledSignupForm>
-      
-
+    </StyledSignupForm>      
       </>
-
-
     )}
     </MyContext.Consumer>   
   )
