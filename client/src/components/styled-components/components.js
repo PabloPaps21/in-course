@@ -200,10 +200,14 @@ export const StyledNavbar = styled.nav`
   height: 80px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 10px;
   box-sizing: border-box;
   background-color: #48689a;
+  img {
+    width: 90px;
+    height:15px;
+  }
   & a {
     padding: 5px;
     color: black;

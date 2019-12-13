@@ -52,7 +52,6 @@ class MyProvider extends Component {
     .then(({ data }) => { 
       console.log(data.user.role);
       if(data.user.role === 'Student'){
-        console.log('ya llegue')
         return cb('/student')
       } else if (data.user.role === 'Investor'){
         this.setState({ loggedUser : true, user: data.user })
@@ -73,7 +72,6 @@ class MyProvider extends Component {
   }
 
   render(){
-      console.log(this.state)
       return(
         <MyContext.Provider
         value = {{

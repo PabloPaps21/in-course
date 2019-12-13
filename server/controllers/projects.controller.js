@@ -1,6 +1,8 @@
 const Project = require ("../models/Project");
 const User = require("../models/User")
 
+
+//crear proyecto
 exports.createProject = async (req,res) => {
   const { _id } = req.user;
   const { program, university, total, description, academic, grade } = req.body;

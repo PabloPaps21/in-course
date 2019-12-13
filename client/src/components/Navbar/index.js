@@ -12,19 +12,49 @@ function Navbar(props) {
         {context => {
           return (
             <StyledNavbar>
-              <NavLink exact to="/" activeClassName="navbar-active">
-                Home
+              {
+                context.loggedUser ? ( 
+                  context.user.role === 'Investor' ?  
+
+                  <NavLink exact to="/investor" activeClassName="navbar-active">
+                <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1574927180/dynamic/naranaja_raqsp2.png" alt="In-course"/>
+              </NavLink> :
+                 <NavLink exact to="/student" activeClassName="navbar-active">
+                <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1574927180/dynamic/naranaja_raqsp2.png" alt="In-course"/>
               </NavLink>
-              <NavLink exact to="/signup" activeClassName="navbar-active">
-                Signup
-              </NavLink>
-              <NavLink exact to="/allprojects" activeClassName="navbar-active">
+              
+              
+              ) 
+              :
+              (<NavLink exact to="/" activeClassName="navbar-active">
+                <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1574927180/dynamic/naranaja_raqsp2.png" alt="In-course"/>
+              </NavLink>)
+              }
+
+              <div>
+
+
+              {context.loggedUser ? (<NavLink exact to="/allprojects" activeClassName="navbar-active">
                 Projects
-              </NavLink>
+              </NavLink>)
+              : ""
+
+              }
+              
+              
+
+
+
+
               {!context.loggedUser && (
-                <NavLink exact to="/login" activeClassName="navbar-active">
-                  Login
+                <>
+                  <NavLink exact to="/login" activeClassName="navbar-active">
+                    Login
+                  </NavLink>
+                  <NavLink exact to="/signup" activeClassName="navbar-active">
+                    Signup
                 </NavLink>
+                </>
               )}
               {context.loggedUser && (
                 <span
@@ -37,6 +67,8 @@ function Navbar(props) {
                   Logout
                 </span>
               )}
+              </div>
+              
             </StyledNavbar>
           )
         }}

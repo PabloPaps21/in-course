@@ -18,7 +18,7 @@ router.get('/', (req, res, next) => {
 
 
 router.post('/signup', signup)
-router.get('/signup',(req,res,netx)  => {
+router.get('/signup',isConnected,(req,res,netx)  => {
   res.status(200).json({msg: 'signup'})
 });
 

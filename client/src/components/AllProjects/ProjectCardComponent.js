@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { ProjectCards, AddInvestForm } from '../styled-components/components';
 import InvestService from '../../services/InvestService';
 
@@ -79,7 +79,7 @@ export default class ProjectCardComponent extends Component {
                 value= {this.state.quantity}
                 onChange={this.inputChange}
               />
-              <button>Invertir</button>
+              <button>Aceptar</button>
               </AddInvestForm>
             ): "" }
     
