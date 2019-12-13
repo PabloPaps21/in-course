@@ -99,9 +99,6 @@ const projectService = new ProjectService();
         onChange={this.inputChange}
         placeholder="Total"
         />
-      {/* actual? como lo marco? */}
-      <label>actual: ??????</label>
-
       <button>
         Create Project
       </button>
