@@ -10,7 +10,7 @@ exports.createInvest = async(req, res, next) => {
   const invest = await Investment.create({
     quantity, projectId: project._id, investorId:_id, studentId: project.creator
   });
-  let actual = project.actual + quantity
+  let actual = parseFloat(project.actual) + parseFloat(quantity)
   await Project.findByIdAndUpdate(project._id, { actual });
 
   const myInvests = await User.findByIdAndUpdate(
@@ -25,7 +25,7 @@ exports.createInvest = async(req, res, next) => {
   }
 }
 
-//obtener todas las inversiones
+//obtener todas las inversiones por usuario
 exports.getInvestments = async (req, res) => {
   const investments = await Investment.findOne({ investorId: req.user._id }); 
   res.status(200).json({ investments })
@@ -34,7 +34,7 @@ exports.getInvestments = async (req, res) => {
 //detalle inversion
 exports.investDetail = async (req, res) => {
   const { id } = req.params;
-  const invest = await Investment.findById(id);
+  const invest = await Investment.findById(id).populate('projectId');
   res.status(200).json(invest);
 };
 
