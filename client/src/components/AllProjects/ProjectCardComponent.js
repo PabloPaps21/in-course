@@ -27,7 +27,7 @@ export default class ProjectCardComponent extends Component {
   };
 
   toggle = () => {
-    console.log('working')
+  
     this.setState({ showInvest: true, 
       form:{
         project:this.props.project,
@@ -40,7 +40,6 @@ export default class ProjectCardComponent extends Component {
     e.preventDefault();
     const { form } = this.state;
     const invest = await investService.createInvest(form)
-    console.log(invest);
     alert("Gracias por el apoyo");
     this.setState({
       form: {
@@ -48,12 +47,6 @@ export default class ProjectCardComponent extends Component {
       }
     })
   }
-
-
-
-
-
-
 
   render() {
     return (
