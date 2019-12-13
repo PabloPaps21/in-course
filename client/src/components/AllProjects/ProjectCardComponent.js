@@ -10,17 +10,15 @@ export default function ProjectCardComponent(props){
       <ProjectCards>
        
           <div>
-
-          
-
-            <h2>{props.project.program}</h2>
-            <small>{props.project.university}</small>
-            <p>PAPS</p>
-
-
-
+            <h2>Programa: {props.project.program}</h2>
+            <small>Universidad: {props.project.university}</small>
+            <p>Descripcion: {props.project.description}</p>
+            <p>Tota:{props.project.total}</p>
+            <p>Actual: {props.project.actual}</p>
+            <p>Grade:{props.project.grade}</p>
+            <p>Academic: {props.project.academic}</p>
           </div>
-
+          <button>Invertir</button>
       </ProjectCards>
     </>
   )

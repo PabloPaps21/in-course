@@ -3,12 +3,13 @@ const User = require("../models/User")
 
 exports.createProject = async (req,res) => {
   const { _id } = req.user;
-  const { program, university, total, description, academic } = req.body;
+  const { program, university, total, description, academic, grade } = req.body;
   
   const project = await Project.create({
     program,
     university,
     total,
+    grade,
     description,
     academic,
     creator: _id,

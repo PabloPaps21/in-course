@@ -17,6 +17,8 @@ export default class ProfileStudent extends Component {
         <div>
           <h1>Student: {context.user.name}</h1>
         </div>
+
+        <Link to="/create-project">Crear Proyecto</Link>
       </StyleProfile>}
       </MyContext.Consumer>
       

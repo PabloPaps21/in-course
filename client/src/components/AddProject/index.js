@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import axios from 'axios';
-
+import ProjectService from '../../services/ProjectService';
 import { FormAddProject }  from "../../components/styled-components/components"
 
+const projectService = new ProjectService();
 
-export default class AddProject extends Component {
+
+
+ class AddProject extends Component {
 
   state = {
     file:{},
@@ -13,7 +15,6 @@ export default class AddProject extends Component {
       university:"",
       program:"",
       total:"",
-      actual:"",
       grade:"",
       academic:""
     }
@@ -21,7 +22,7 @@ export default class AddProject extends Component {
 
   inputChange = ({ target: {value, name} }) =>{
     this.setState({
-      ...this.setState,
+      ...this.state,
       form:{
         ...this.state.form,
         [name]:value
@@ -36,10 +37,10 @@ export default class AddProject extends Component {
   addProject = async e => {
     e.preventDefault();
     const { form } = this.state;
-    const { data } = await axios.post();
-    console.log(data);
+    const project = await projectService.createProject(form)
+    console.log(project);
     alert("Created!");
-    this.setState({
+    this.setState({ 
       form: {
         description:"",
         university:"",
@@ -50,6 +51,7 @@ export default class AddProject extends Component {
         academic:""
       }
     })
+    console.log(this.state +' hola')
   };
 
 
@@ -93,10 +95,9 @@ export default class AddProject extends Component {
         <input 
         name="total"
         type="number" 
-        value={this.state.form.program}
+        value={this.state.form.total}
         onChange={this.inputChange}
         placeholder="Total"
-        required
         />
       {/* actual? como lo marco? */}
       <label>actual: ??????</label>
@@ -118,3 +119,4 @@ export default class AddProject extends Component {
 
 
 
+export default  AddProject

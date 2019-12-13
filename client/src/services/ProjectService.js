@@ -13,4 +13,12 @@ export default class ProjectService {
         console.log(p)
         return p
     }
+
+    createProject(data){
+        console.log(data);
+        return this.projects.post("api/project", data);
+    }
+
+
+
 }
