@@ -12,15 +12,15 @@ export default class InvestService {
   }
   //inversiones por usuario
   async getInvestments(){
-    const inv = await this.invests.get('/api/invest')
+    return this.invests.get('/api/invest')
   }
   //detalle-inversion
-  async updateInvestment(data){
-    return this.invests.patch('/api/invest', data)
+  async updateInvestment(id, data){
+    return this.invests.patch(`/api/invest/${id}`, data)
   }
   //eliminar-inversion
-  async deleteInvestment(){
-    return this.invests.delete('/api/invest')
+  async deleteInvest(investmentId){
+    return this.invests.delete(`/api/invest/${investmentId}`)
   }
 
 }//class

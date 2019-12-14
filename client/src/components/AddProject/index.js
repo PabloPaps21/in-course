@@ -37,7 +37,15 @@ const projectService = new ProjectService();
   addProject = async e => {
     e.preventDefault();
     const { form } = this.state;
+    const formData = new FormData()
+
+    for(let key in this.state.form){
+      formData.append(key, this.state.form[key])
+    }
+    formData.append('academic', this.state.file)
+
     const project = await projectService.createProject(form)
+
     console.log(project);
     alert("Created!");
     this.setState({ 

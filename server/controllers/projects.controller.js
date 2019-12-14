@@ -1,7 +1,6 @@
 const Project = require ("../models/Project");
 const User = require("../models/User")
 
-
 //crear proyecto
 exports.createProject = async (req,res) => {
   const { _id } = req.user;
@@ -26,8 +25,9 @@ exports.createProject = async (req,res) => {
   res.status(201).json(project);
 }
 
-exports.upload = async (req, res) => {
+exports.uploadPhoto = async (req, res) => {
   if(req.file) {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:3001')
     const { secure_url } = req.file;
     res.json({img: secure_url})
   }

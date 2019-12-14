@@ -31,10 +31,10 @@ const projecSchema = new Schema(
       type: Number,
       default: 6
     },
-    academic: [{
+    academic: {
       type: String,
       default: "https://cdn5.dibujos.net/dibujos/pintar/diploma-escolar.png"
-    }]
+    }
   }
 )
 

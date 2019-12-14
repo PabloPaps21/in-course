@@ -7,7 +7,7 @@ const {
   createInvest,
   getInvestments,
   updateInvestment,
-  deleteInvest,
+  deleteInvestment,
   investDetail
 } = require('../controllers/invest.controller');
 
@@ -22,6 +22,6 @@ router.get("/invest/:id", isLoggedIn, catchErrors(investDetail));
 //editar
 router.patch("/invest/:id", isLoggedIn, (updateInvestment));
 //eliminar
-router.delete("/invest/:id", isLoggedIn,catchErrors(deleteInvest));
+router.delete("/invest/:id", isLoggedIn,catchErrors(deleteInvestment));
 
 module.exports = router;

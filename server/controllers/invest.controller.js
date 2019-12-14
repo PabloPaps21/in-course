@@ -27,7 +27,7 @@ exports.createInvest = async(req, res, next) => {
 
 //obtener todas las inversiones por usuario
 exports.getInvestments = async (req, res) => {
-  const investments = await Investment.findOne({ investorId: req.user._id }); 
+  const investments = await Investment.find({ investorId: req.user._id }).populate('projectId'); 
   res.status(200).json({ investments })
 }
 

@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import InvestService from '../../services/InvestService';
 import  {InvCards, AddInvestForm} from '../styled-components/components';
 
-
+const investService = new InvestService();
 
 export default class InvestCardComponent extends Component {
     
   state = {
     showUpdateForm: false,
-    form:{ 
+    form: { 
       quantity:"" //como jalar la info de ese input
     },
     
@@ -26,30 +26,24 @@ export default class InvestCardComponent extends Component {
 
   toggle = () => {
     this.setState({ 
-      showUpdateForm: true,
-      form:{
-        invest:this.props.invest,
-        quantity:""
+      showUpdateForm: true, 
+      quantity:this.props.invest.quantity,
+      form: {
+        quantity: this.props.invest.quantity,
       }
-      
-    })
-
+    });
   }
 
   updateInvest = async e =>{
     e.preventDefault();
     const { form } = this.state;
-    const invest = await InvestService.updateInvestment(form)
+    await investService.updateInvestment(this.props.invest._id, form)
     alert("modificado");
-    this.setState({
-      form:{
-        invest:this.props.invest
-      }
-    })
+
   }
 
-  borrarInvest = async e =>{
-    const delInvest = await InvestService.deleteInvest()
+  delInvest = async e => {
+    await investService.deleteInvest(this.props.invest._id)
   }
 
   render() {
@@ -61,8 +55,8 @@ export default class InvestCardComponent extends Component {
         </div> */}
        
           <img  src="https://d1dxvryen9goi5.cloudfront.net/wp-content/uploads/2019/10/estudiante.jpg" alt="academic"/>
-          <h1>Nombre del programa: </h1>
-          <h1>Cantidad: </h1>
+          <h1>Nombre del programa:{this.props.invest.projectId.program}</h1>
+          <h1>Cantidad:{this.props.invest.quantity}</h1>
 
 
 
@@ -87,7 +81,7 @@ export default class InvestCardComponent extends Component {
 
 
 
-        <button>Delete</button>
+        <button onClick={this.delInvest}>Delete</button>
       </InvCards>
       </>
     )

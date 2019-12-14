@@ -3,6 +3,8 @@ const express = require('express');
 const router  = express.Router();
 const passport = require('passport');
 const catchErrors = require('../middlewares/catchErrors')
+const uploadPhoto = require("../config/cloudinary");
+
 
 const  {
   createProject,
@@ -12,7 +14,7 @@ const  {
 
 const { isLoggedIn, isNotLoggedIn, isConnected} = require('../middlewares/auth.middlewares');
 
-router.post('/project', isLoggedIn, catchErrors(createProject));
+router.post('/project', uploadPhoto.single("academic"),isLoggedIn, catchErrors(createProject));
 
 
 
