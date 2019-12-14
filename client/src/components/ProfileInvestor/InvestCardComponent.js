@@ -27,7 +27,6 @@ export default class InvestCardComponent extends Component {
   toggle = () => {
     this.setState({ 
       showUpdateForm: true, 
-      quantity:this.props.invest.quantity,
       form: {
         quantity: this.props.invest.quantity,
       }
@@ -38,12 +37,12 @@ export default class InvestCardComponent extends Component {
     e.preventDefault();
     const { form } = this.state;
     await investService.updateInvestment(this.props.invest._id, form)
-    alert("modificado");
-
+    this.props.refreshData();
   }
 
   delInvest = async e => {
     await investService.deleteInvest(this.props.invest._id)
+    this.props.refreshData()
   }
 
   render() {
@@ -69,7 +68,7 @@ export default class InvestCardComponent extends Component {
             <input 
               name="quantity"
               type="number"
-              value= {this.state.quantity}
+              value= {this.state.form.quantity}
               onChange={this.inputChange}
               />
               <button>Aceptar</button>

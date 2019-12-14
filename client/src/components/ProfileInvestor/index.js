@@ -15,6 +15,10 @@ export default class ProfileInvestor extends Component {
   }
 
   async componentDidMount() {
+    await this.getData()
+  }
+
+  async getData(){
     const { data } = await investService.getInvestments();
     console.log(data)
     this.setState({
@@ -23,12 +27,11 @@ export default class ProfileInvestor extends Component {
   }
 
 
-
   
   
   render() {
     const { profile } = this.state
-
+    
     return (
         <MyContext.Consumer>
         {context =><StyleProfile>
@@ -37,7 +40,7 @@ export default class ProfileInvestor extends Component {
           
           {this.state.invests.map((invest, index) => {
 
-            return <InvestCardComponent  invest={invest} i={index} />
+            return <InvestCardComponent refreshData={() => {this.getData()}} invest={invest} i={index} />
           })}
 
 
