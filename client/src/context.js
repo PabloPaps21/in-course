@@ -71,6 +71,12 @@ class MyProvider extends Component {
     cb()
   }
 
+  handleFile = async (e) => {
+    this.setState( { file: e.target.files[0] })
+  }
+
+
+
   render(){
       return(
         <MyContext.Provider
@@ -82,6 +88,7 @@ class MyProvider extends Component {
           handleSignup: this.handleSignup,
           handleLogin: this.handleLogin,
           handleLogout: this.handleLogout,
+          handleFile: this.handleFile,
           user:this.state.user
         }}
         >

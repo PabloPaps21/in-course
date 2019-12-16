@@ -44,7 +44,7 @@ const projectService = new ProjectService();
     }
     formData.append('academic', this.state.file)
 
-    const project = await projectService.createProject(form)
+    const project = await projectService.createProject(formData)
 
     console.log(project);
     alert("Created!");
@@ -59,7 +59,7 @@ const projectService = new ProjectService();
         academic:""
       }
     })
-    console.log(this.state +' hola')
+    console.log(this.state +' hola'+'aqui es')
   };
 
 
@@ -91,6 +91,7 @@ const projectService = new ProjectService();
         placeholder="Description"
         required
         />
+        <label>calificacion</label>
         <input 
           name="grade"
           type="number"

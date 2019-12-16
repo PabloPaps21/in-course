@@ -4,7 +4,7 @@ const User = require("../models/User")
 //crear proyecto
 exports.createProject = async (req,res) => {
   const { _id } = req.user;
-  const { program, university, total, description, academic, grade } = req.body;
+  const { program, university, total, description , grade } = req.body;
   
   const project = await Project.create({
     program,
@@ -12,13 +12,12 @@ exports.createProject = async (req,res) => {
     total,
     grade,
     description,
-    academic:req.file.secure_url,
+    academic: req.file.secure_url,
     creator: _id,
-
   })
   const myProjects = await User.findByIdAndUpdate(
     _id, 
-    { $push: {misProyectos: project._id}},
+    { $push: {misProyectos: project._id, academic:req.file.secure_url}},
     { new: true }
   );
 

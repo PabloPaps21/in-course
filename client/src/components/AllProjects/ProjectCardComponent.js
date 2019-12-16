@@ -52,13 +52,14 @@ export default class ProjectCardComponent extends Component {
         <ProjectCards>
          
             <div>
+              <img src={this.props.project.academic} alt="avg"/>
               <h2>Programa: {this.props.project.program}</h2>
               <small>Universidad: {this.props.project.university}</small>
               <p>Descripcion: {this.props.project.description}</p>
               <p>Tota:{this.props.project.total}</p>
               <p>Actual: {this.props.project.actual}</p>
               <p>Grade:{this.props.project.grade}</p>
-              <p>Academic: {this.props.project.academic}</p>
+              {/* <p>Academic: {this.props.project.academic}</p> */}
             </div>
             <button onClick={this.toggle}>Invierte</button>
             
