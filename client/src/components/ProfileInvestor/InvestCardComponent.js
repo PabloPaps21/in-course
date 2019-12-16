@@ -9,7 +9,7 @@ export default class InvestCardComponent extends Component {
   state = {
     showUpdateForm: false,
     form: { 
-      quantity:"" //como jalar la info de ese input
+      quantity:""
     },
     
   };

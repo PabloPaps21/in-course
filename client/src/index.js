@@ -4,7 +4,7 @@ import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Routes from './Routes'
 import MyProvider from './context'
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
     <MyProvider>
         <Routes />

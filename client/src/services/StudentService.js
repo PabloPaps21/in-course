@@ -7,7 +7,7 @@ export default class ProjectService {
         withCredentials: true
     });
     //proyectos del alumno
-    async ProjectList(){
+    async projectList(){
         return this.student.get('/api/student');
     }
 

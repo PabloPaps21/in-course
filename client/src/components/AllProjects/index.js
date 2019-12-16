@@ -12,20 +12,17 @@ export default class AllProjects extends Component {
         const {
             data: { projects }
         } = await projectService.getProjects();
-        console.log(projects)
             this.setState({
                 projects
             })
     }
 
     render(){
-        console.log(this.state.projects)
-        console.log('hola')
         return(
             <>
             <h1>Projects</h1>
             {this.state.projects.map((project, index)=>{
-                return <ProjectCardComponent project={project} i={index} />
+                return <ProjectCardComponent key={index} project={project} i={index} />
             })}
             </>
         )
