@@ -9,13 +9,16 @@ const uploadPhoto = require("../config/cloudinary");
 const  {
   createProject,
   getProjects,
-  projectDetail
+  projectDetail,
+  uploadAcademic
 } = require ('../controllers/projects.controller')
 
 const { isLoggedIn, isNotLoggedIn, isConnected} = require('../middlewares/auth.middlewares');
 
-router.post('/project', uploadPhoto.single("academic"),isLoggedIn, catchErrors(createProject));
+router.post('/project',isLoggedIn, uploadPhoto.single("academic"),catchErrors(createProject));
 
+//foto
+//router.post('/project', isLoggedIn, uploadPhoto.single("academic"), catchErrors(uploadAcademic));
 
 
 //lista de proyectos

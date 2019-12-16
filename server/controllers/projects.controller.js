@@ -12,8 +12,9 @@ exports.createProject = async (req,res) => {
     total,
     grade,
     description,
-    academic,
+    academic:req.file.secure_url,
     creator: _id,
+
   })
   const myProjects = await User.findByIdAndUpdate(
     _id, 
@@ -25,12 +26,16 @@ exports.createProject = async (req,res) => {
   res.status(201).json(project);
 }
 
-exports.uploadPhoto = async (req, res) => {
-  if(req.file) {
-    res.header('Access-Control-Allow-Origin', 'http://localhost:3001')
+exports.uploadAcademic = async (req, res) => {
+  if (req.file) {
     const { secure_url } = req.file;
-    res.json({img: secure_url})
-  }
+    await Project.findByIdAndUpdate(req.body._id, { image: secure_url})
+  
+  .then(() =>{ 
+    res.status(200).json({ file: req.file })})
+  .catch(err => console.log(err));
+}
+  console.log(req.file)
 }
 
 //lista proyectos

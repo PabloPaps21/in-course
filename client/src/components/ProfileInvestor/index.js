@@ -40,7 +40,7 @@ export default class ProfileInvestor extends Component {
           
           {this.state.invests.map((invest, index) => {
 
-            return <InvestCardComponent key = {index}refreshData={() => {this.getData()}} invest={invest} i={index} />
+            return <InvestCardComponent key = {index} refreshData={() => {this.getData()}} invest={invest} i={index} />
           })}
 
 

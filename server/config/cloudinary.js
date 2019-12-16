@@ -1,6 +1,5 @@
 const cloudinary = require('cloudinary')
 const cloudinaryStorage = require('multer-storage-cloudinary')
-
 const multer = require('multer')
 
 cloudinary.config({
@@ -17,6 +16,5 @@ const storage = cloudinaryStorage({
     cb(null, file.originalname)
   }
 })
-
 
 module.exports = multer({ storage })

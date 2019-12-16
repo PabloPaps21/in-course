@@ -39,7 +39,6 @@ export default class ProjectCardComponent extends Component {
     e.preventDefault();
     const { form } = this.state;
     const invest = await investService.createInvest(form)
-    alert("Gracias por el apoyo");
     this.setState({
       form: {
         quantity:""
