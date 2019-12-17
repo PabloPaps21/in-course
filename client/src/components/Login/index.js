@@ -2,6 +2,16 @@ import React from 'react'
 import { MyContext } from '../../context'
 import { StyledLoginForm } from '../styled-components/components'
 import { Link } from 'react-router-dom'
+import { findByLabelText } from '@testing-library/react'
+
+
+const divPadre = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height:'90vh'
+}
+
 
 export default class LoginContainer extends React.Component {
   componentDidMount(){
@@ -16,6 +26,8 @@ export default class LoginContainer extends React.Component {
     return (
       <MyContext.Consumer>
         { context => (
+
+          <div style={divPadre}>
           <StyledLoginForm onSubmit={e => {
             context.handleLogin(e, (path) => {
               this.props.history.push(path)
@@ -23,6 +35,7 @@ export default class LoginContainer extends React.Component {
           }} 
           >
           <div>
+            <h1>Entra.</h1>
             <input
               name="email"
               placeholder="e-mail"
@@ -44,9 +57,11 @@ export default class LoginContainer extends React.Component {
             Login
           </button>
           
-            <p>if you dont have a account yet, you can create your account <Link to="/signup">here</Link></p>  
+            <p>¿Aún no tienes cuenta?  <Link to="/signup">Regístrate aquí</Link></p>  
             </div>
           </StyledLoginForm>
+          </div>
+          
         )}
       </MyContext.Consumer>
     )

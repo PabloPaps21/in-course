@@ -155,29 +155,19 @@ export const StyleProfile = styled.div`
 export const StyledLoginForm = styled.form`
   display: flex;
   align-items: flex-start;
+  justify-content: center;
   flex-direction:row;
-  justify-content: space-evenly;
-  width: 40%;
-  height:500px;
   background-image: url('./oval-bg.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-top: 150px;
   padding: 0 50px;
-  & div:nth-child(1) {
-    
-    width: 60%;
-  }
-  & div:nth-child(2) {
-    
-    width: 40%;   
-  }
+ 
   input {
     margin-top: 10px;
-    border: 1px solid #f6f6f6;
+    border: 1px solid #A3FFF6;
     border-radius: 5px;
-    width: 80%;
+    width: 100%;
     height:40px;
     background-color: #f6f6f6;
   }
@@ -190,7 +180,11 @@ export const StyledLoginForm = styled.form`
     width: 60%;
     border-radius: 5px;
     border: 1px solid #c0e3be;
-    background-color: #c0e3be;
+    color: #FFF;
+    background-image: linear-gradient(to right, #4bccbf, #51d2bb, #5ad7b5, #65dcaf, #73e1a7);
+  }
+  h1 {
+    color: #00C9A7
   }
 `;
 

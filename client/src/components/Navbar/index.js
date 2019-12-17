@@ -28,15 +28,15 @@ function NavbarR(props) {
                     context.user.role === 'Investor' ?  
 
                     <NavLink exact to="/investor" activeClassName="navbar-active">
-                <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1574927180/dynamic/naranaja_raqsp2.png" alt="In-course" style={{ width:150 }}/>
+                <img src="https://res.https://res.cloudinary.com/djgqc9rrx/image/upload/v1576573185/inCourse/Incourse-logo_khauti.png.com/djgqc9rrx/image/upload/v1574927180/dynamic/naranaja_raqsp2.png" alt="In-course" style={{ width:150 }}/>
                 </NavLink> :
                   <NavLink exact to="/student" activeClassName="navbar-active">
-                  <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1574927180/dynamic/naranaja_raqsp2.png" alt="In-course" style={{ width:150 }}/>
+                  <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1574927180/dynamic/naranaja_raqsphttps://res.cloudinary.com/djgqc9rrx/image/upload/v1576573185/inCourse/Incourse-logo_khauti.png2.png" alt="In-course" style={{ width:150 }}/>
                 </NavLink>              
                 ) 
                 :
                 (<NavLink exact to="/" activeClassName="navbar-active">
-                  <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1574927180/dynamic/naranaja_raqsp2.png" alt="In-course" style={{ width:150 }}/>
+                  <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576573185/inCourse/Incourse-logo_khauti.png" alt="In-course" style={{ width:150 }}/>
                 </NavLink>)
                 }
 
