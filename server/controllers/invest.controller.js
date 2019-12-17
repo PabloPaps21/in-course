@@ -38,8 +38,9 @@ exports.investDetail = async (req, res) => {
   res.status(200).json(invest);
 };
 
-//editar inversiones
-exports.updateInvestment = async (req, res) =>{
+
+//UPDATE
+  exports.updateInvestment = async (req, res) =>{
   const { id } = req.params;
   
   const investment = await Investment.findById(id);
@@ -50,21 +51,23 @@ exports.updateInvestment = async (req, res) =>{
 
   const { quantity } = req.body;
 
-  //let actual = (parseFloat(project.actual) + parseFloat(quantity)
+  console.log(` QUANTITY: ${investment.quantity}`)
 
+  //let actual = (parseFloat(project.actual) + parseFloat(quantity)
+  let temporal = parseFloat(quantity)
   let qty = parseFloat(quantity);
   let actual = parseFloat(project.actual);
 
-  if(qty > actual){
+  if(qty > 0){
     console.log('SUMA')
-     actual += parseFloat(project.actual) + parseFloat(quantity)
-  } else if(qty < actual) {
+    temporal = parseFloat(project.actual) + parseFloat(qty)
+  } else if(qty < 0) {
     console.log('RESTA')
-    actual = parseFloat(project.actual) - parseFloat(quantity)
+    temporal = parseFloat(project.actual) - parseFloat(qty)
   }
 
-  console.log(`NUEVO NUMERO: ${actual}`)
-  await Project.findByIdAndUpdate(project._id, { actual });
+  console.log(`ACTUAL: ${actual}`)
+  await Project.findByIdAndUpdate(project._id, {actual });
 
   const investments = await Investment.findByIdAndUpdate(id, { quantity });
   console.log(`ESTE EL EL ULTIMO NUMERO: ${actual}`)

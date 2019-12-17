@@ -15,6 +15,7 @@ export default class ProfileStudent extends Component {
   }
 
   async componentDidMount(){
+    if(!this.context.loggedUser) return this.props.history.push('/login')
     const { data } = await studentService.projectList();
     //console.log(data)
     this.setState({ 
@@ -54,3 +55,6 @@ export default class ProfileStudent extends Component {
   }
   
 }
+
+
+ProfileStudent.contextType=MyContext

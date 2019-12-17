@@ -50,7 +50,7 @@ export default class InvestCardComponent extends Component {
       <>
       <InvCards>       
           {/* <img  src="https://d1dxvryen9goi5.cloudfront.net/wp-content/uploads/2019/10/estudiante.jpg" alt="academic"/> */}
-          <img src={this.props.invest.projectId.academic} alt="acaddemic"/>
+          <img src={this.props.invest.projectId.academic} alt="academic"/>
           <h1>Nombre del programa:{this.props.invest.projectId.program}</h1>
           <h1>Cantidad:{this.props.invest.quantity}</h1>
 

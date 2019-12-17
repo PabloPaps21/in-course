@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { ProjectCards, AddInvestForm } from '../styled-components/components';
 import InvestService from '../../services/InvestService';
+import { withRouter } from 'react-router-dom';
 
 
 const investService = new InvestService();
 
-export default class ProjectCardComponent extends Component {
+ class ProjectCardComponent extends Component {
   
   state = {
     projects:[],
@@ -44,6 +45,8 @@ export default class ProjectCardComponent extends Component {
         quantity:""
       }
     })
+
+    this.props.history.push('/investor')
   }
 
   render() {
@@ -80,3 +83,5 @@ export default class ProjectCardComponent extends Component {
     )
   }
 }
+
+export default  withRouter(ProjectCardComponent)

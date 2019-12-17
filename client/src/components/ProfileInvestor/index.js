@@ -15,6 +15,7 @@ export default class ProfileInvestor extends Component {
   }
 
   async componentDidMount() {
+    if(!this.context.loggedUser) return this.props.history.push('/login')
     await this.getData()
   }
 
@@ -56,3 +57,5 @@ export default class ProfileInvestor extends Component {
   }
   
 }
+
+ProfileInvestor.contextType=MyContext

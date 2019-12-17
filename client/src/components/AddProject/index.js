@@ -59,13 +59,14 @@ const projectService = new ProjectService();
         academic:""
       }
     })
+    this.props.history.push('/student')
   };
 
 
   render(){
     return(
       <>
-      <FormAddProject onSubmit={this.addProject}>
+      <FormAddProject onSubmit={this.addProject} >
         <input 
         name="program"
         type="text" 
