@@ -2,7 +2,6 @@ import React from 'react'
 import { MyContext } from '../../context'
 import { StyledLoginForm } from '../styled-components/components'
 import { Link } from 'react-router-dom'
-import { findByLabelText } from '@testing-library/react'
 
 
 const divPadre = {
@@ -15,16 +14,21 @@ const divPadre = {
 
 export default class LoginContainer extends React.Component {
   componentDidMount(){
-    if(this.context.loggedUser){
-      if(this.context.user.role=== 'Student'){
-        return this.props.history.push('/student')
-      } else if(this.context.user.role=== 'Investor'){
-        return this.props.history.push('/investor')
-      }
+    console.log(`CONTEXT  ${this.context}` )
+    if(!this.context.loggedUser) {
+      console.log(this.context.user);
+      return this.props.history.push('/login')
+    } else {
+        if(this.context.user.role=== 'Student'){
+          return this.props.history.push('/student')
+        } else {
+          return this.props.history.push('/investor')
+        }
     }
-  }
 
+  }
   render(){
+    console.log('ya entre')
     return (
       <MyContext.Consumer>
         { context => (

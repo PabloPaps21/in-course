@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { ProjectCards, AddInvestForm } from '../styled-components/components';
 import InvestService from '../../services/InvestService';
 import { withRouter } from 'react-router-dom';
+import { MyContext } from '../../context';
 
 
 const investService = new InvestService();
+const dissapear = {
+  display:'none'
+}
 
  class ProjectCardComponent extends Component {
   
@@ -51,7 +55,11 @@ const investService = new InvestService();
 
   render() {
     return (
-      <>
+      
+      <MyContext.Consumer>
+        {context => {
+          return (
+
         <ProjectCards>
          
             <div>
@@ -64,7 +72,12 @@ const investService = new InvestService();
               <p>Grade:{this.props.project.grade}</p>
               {/* <p>Academic: {this.props.project.academic}</p> */}
             </div>
-            <button onClick={this.toggle}>Invierte</button>
+
+            {
+              context.user.role === 'Student' ?
+              (<button onClick={this.toggle} style={dissapear}>Invierte</button>) : (<button onClick={this.toggle}>Invierte</button>)
+              
+            }
             
             { this.state.showInvest ? (
               <AddInvestForm  onSubmit={this.addInvest}>
@@ -79,7 +92,9 @@ const investService = new InvestService();
             ): "" }
     
         </ProjectCards>
-      </>
+        )
+        }}
+      </MyContext.Consumer>
     )
   }
 }

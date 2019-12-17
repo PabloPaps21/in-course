@@ -9,9 +9,9 @@ function DetailProject(props){
       <h1>Programa: {props.program}</h1>
       <h2>University: {props.university}</h2>
       <h2>Student name: Como lo jalo?</h2>
-      <p>Descriptio: {props.description}</p>
+      <p>Description: {props.description}</p>
       <h2>Total: {props.total} </h2>
-      <h2>Actual: {props.actual} como la jalo?</h2>
+      <h2>Actual: {props.actual}</h2>
       <button>Invertir</button>
       </article> 
     </StyleCards>

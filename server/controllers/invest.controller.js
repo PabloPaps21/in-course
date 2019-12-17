@@ -38,41 +38,28 @@ exports.investDetail = async (req, res) => {
   res.status(200).json(invest);
 };
 
-
-//UPDATE
-  exports.updateInvestment = async (req, res) =>{
-  const { id } = req.params;
-  
-  const investment = await Investment.findById(id);
-
-  
-
-  const project = await Project.findById(investment.projectId)
-
+//editar inversiones
+exports.updateInvestment = async (req, res) =>{
   const { quantity } = req.body;
-
-  console.log(` QUANTITY: ${investment.quantity}`)
-
-  //let actual = (parseFloat(project.actual) + parseFloat(quantity)
-  let temporal = parseFloat(quantity)
-  let qty = parseFloat(quantity);
-  let actual = parseFloat(project.actual);
-
-  if(qty > 0){
-    console.log('SUMA')
-    temporal = parseFloat(project.actual) + parseFloat(qty)
-  } else if(qty < 0) {
-    console.log('RESTA')
-    temporal = parseFloat(project.actual) - parseFloat(qty)
-  }
-
-  console.log(`ACTUAL: ${actual}`)
-  await Project.findByIdAndUpdate(project._id, {actual });
-
-  const investments = await Investment.findByIdAndUpdate(id, { quantity });
-  console.log(`ESTE EL EL ULTIMO NUMERO: ${actual}`)
-
+  const { id } = req.params;
+  const investments = await Investment.findByIdAndUpdate(id, {$inc: { quantity:quantity }});
   res.status(200).json(investments)
+
+
+
+/*
+  db.products.update(
+    { sku: "abc123" },
+    { $inc: { quantity: -2, "metrics.orders": 1 } }
+  )
+
+*/
+
+
+
+
+
+
 }
 
 //eliminar inversion

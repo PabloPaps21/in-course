@@ -52,7 +52,9 @@ export default class InvestCardComponent extends Component {
           {/* <img  src="https://d1dxvryen9goi5.cloudfront.net/wp-content/uploads/2019/10/estudiante.jpg" alt="academic"/> */}
           <img src={this.props.invest.projectId.academic} alt="academic"/>
           <h1>Nombre del programa:{this.props.invest.projectId.program}</h1>
-          <h1>Cantidad:{this.props.invest.quantity}</h1>
+          <h1>Mi inversión:{this.props.invest.quantity}</h1>
+          <h2>Total del proyecto: {this.props.invest.projectId.total}</h2>
+          <h2>Actual:{this.props.invest.projectId.actual}</h2>
 
 
 
@@ -62,6 +64,7 @@ export default class InvestCardComponent extends Component {
         {
           this.state.showUpdateForm ? (
             <AddInvestForm  onSubmit={this.updateInvest}>
+            <h5>Nuevo valor de mi inversión</h5>
             <input 
               name="quantity"
               type="number"

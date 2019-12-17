@@ -27,7 +27,7 @@ class MyProvider extends Component {
       AUTH_SERVICE.getUser()
       .then(( { data }) => {
         this.setState({loggedUser: true, user: data.user})
-        Swal.fire(`Welcomeback ${this.state.formSignup.name}`, '', 'success')
+        //Swal.fire(`Welcomeback ${this.state.formSignup.name}`, '', 'success')
       })
       .catch(err => console.log(err))
     }
@@ -43,7 +43,7 @@ class MyProvider extends Component {
   handleSignup = async e => {
     e.preventDefault()
     AUTH_SERVICE.signup(this.state.formSignup)
-    Swal.fire(`Welcome ${this.state.formSignup.name}`, 'User created', 'success')
+    //Swal.fire(`Welcome ${this.state.formSignup.name}`, 'User created', 'success')
   }
 
   handleLogin = (e, cb)=> {
@@ -60,7 +60,7 @@ class MyProvider extends Component {
       }
     })
     .catch(err => {
-      Swal.fire('Algo se rompió', 'error')
+      Swal.fire('Error', 'error')
     })
   }
 
