@@ -40,41 +40,53 @@ exports.investDetail = async (req, res) => {
 
 //editar inversiones
 exports.updateInvestment = async (req, res) =>{
-  const { quantity } = req.body;
   const { id } = req.params;
+  
+  const investment = await Investment.findById(id);
+
+  
+
+  const project = await Project.findById(investment.projectId)
+
+  const { quantity } = req.body;
+
+  //let actual = (parseFloat(project.actual) + parseFloat(quantity)
+
+  let qty = parseFloat(quantity);
+  let actual = parseFloat(project.actual);
+
+  if(qty > actual){
+    console.log('SUMA')
+     actual += parseFloat(project.actual) + parseFloat(quantity)
+  } else if(qty < actual) {
+    console.log('RESTA')
+    actual = parseFloat(project.actual) - parseFloat(quantity)
+  }
+
+  console.log(`NUEVO NUMERO: ${actual}`)
+  await Project.findByIdAndUpdate(project._id, { actual });
+
   const investments = await Investment.findByIdAndUpdate(id, { quantity });
+  console.log(`ESTE EL EL ULTIMO NUMERO: ${actual}`)
+
   res.status(200).json(investments)
 }
 
 //eliminar inversion
 exports.deleteInvestment = async(req, res) => {
   const { id } = req.params;
-  
   const investment = await Investment.findById(id);
-  console.log(investment + 'inversion');
-
+  //console.log(investment + 'inversion');
   const project = await Project.findById(investment.projectId)
-  console.log(project + 'proyecto')
-
-  console.log(`antes de la resta: ${project.total}`)
-
+  //console.log(project + 'proyecto')
+  //console.log(`antes de la resta: ${project.total}`)
   let actual = parseFloat(project.actual) - parseFloat(investment.quantity)
-
   await Project.findByIdAndUpdate(project._id, { actual });
-
-
-  console.log(`numero1: ${project.total}`)
-  console.log(`numero2: ${investment.quantity}`)
-
-
-  console.log(`resta: ${actual}`)
-  
+  //console.log(`numero1: ${project.total}`)
+  //console.log(`numero2: ${investment.quantity}`)
+  //console.log(`resta: ${actual}`)
   await Project.findByIdAndUpdate(project._id);
-  
   await Investment.findByIdAndDelete(id);
-
-
   // res.status(200).json({ message:"delete" });
   return res.status(200).json(project);
-
 }
