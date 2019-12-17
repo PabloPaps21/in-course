@@ -9,8 +9,7 @@ const uploadPhoto = require("../config/cloudinary");
 const  {
   createProject,
   getProjects,
-  projectDetail,
-  uploadAcademic
+  projectDetail
 } = require ('../controllers/projects.controller')
 
 const { isLoggedIn, isNotLoggedIn, isConnected} = require('../middlewares/auth.middlewares');

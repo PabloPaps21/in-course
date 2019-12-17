@@ -59,7 +59,6 @@ const projectService = new ProjectService();
         academic:""
       }
     })
-    console.log(this.state +' hola'+'aqui es')
   };
 
 

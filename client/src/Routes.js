@@ -8,12 +8,12 @@ import ProfileInvestor from  './components/ProfileInvestor'
 import addProject from './components/AddProject'
 import AllProjects from './components/AllProjects'
 import CreateProject from './components/AddProject'
-import Navbar from './components/Navbar'
+import NavbarR from './components/Navbar'
 
 function Routes() {
   return(
     <BrowserRouter>
-    <Navbar/>
+    <NavbarR/>
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/signup" component={SignupContainer}/>

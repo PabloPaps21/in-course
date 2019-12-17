@@ -194,7 +194,6 @@ export const StyledLoginForm = styled.form`
   }
 `;
 
-
 export const StyledNavbar = styled.nav`
   width: 100vw;
   height: 80px;
@@ -217,8 +216,11 @@ export const StyledNavbar = styled.nav`
     color: #0f4c81;
   }
 `
+export const AnchorName = styled.a`
+  color:#FFF;
+`;
+
 export const FormAddProject = styled.form`
-  background-color: coral;
   display:flex;
   justify-content:center;
   flex-direction:column;
@@ -231,7 +233,6 @@ export const FormAddProject = styled.form`
   }
   & .description {
     height:90px;
-    background-color:cyan;
   }
   button {
     margin-top: 20px;
@@ -252,7 +253,7 @@ export const backBtn = styled.button`
 `;
 
 export const FormAddInvest = styled.form`
-  background-color: coral;
+
   display:flex;
   justify-content:center;
   flex-direction:column;
@@ -280,7 +281,6 @@ export const AddInvestForm = styled.form`
   
   input {
     width: 150px;
-    background-color:coral
   }
 
 `;

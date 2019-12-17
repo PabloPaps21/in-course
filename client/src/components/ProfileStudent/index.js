@@ -16,7 +16,7 @@ export default class ProfileStudent extends Component {
 
   async componentDidMount(){
     const { data } = await studentService.projectList();
-    console.log(data)
+    //console.log(data)
     this.setState({ 
       projects:data.listaProyectos.misProyectos
     })

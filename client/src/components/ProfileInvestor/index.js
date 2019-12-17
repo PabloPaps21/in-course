@@ -38,10 +38,14 @@ export default class ProfileInvestor extends Component {
         <div className="investor">
           <h1>Investor: {context.user.name}</h1>
           
-          {this.state.invests.map((invest, index) => {
+          {
+            (this.state.invests) ? 
+            this.state.invests.map((invest, index) => {
 
-            return <InvestCardComponent key = {index} refreshData={() => {this.getData()}} invest={invest} i={index} />
-          })}
+              return <InvestCardComponent key = {index} refreshData={() => {this.getData()}} invest={invest} i={index} />
+            }) :  <h1>Aún no tienes proyectos</h1>
+          
+          }
 
 
         </div>
