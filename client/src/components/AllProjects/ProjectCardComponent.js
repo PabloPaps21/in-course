@@ -3,8 +3,7 @@ import { ProjectCards, AddInvestForm } from '../styled-components/components';
 import InvestService from '../../services/InvestService';
 import { withRouter } from 'react-router-dom';
 import { MyContext } from '../../context';
-
-import Modal from 'react-bootstrap/Modal'
+import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
 
@@ -14,7 +13,11 @@ const dissapear = {
   display:'none'
 }
 
-
+const imgModal = {
+  width: '300px',
+  display: 'block',
+  margin: 'auto'
+}
  class ProjectCardComponent extends Component {
   
   state = {
@@ -34,7 +37,15 @@ const dissapear = {
   
 	handleShow = () => {
 		this.setState({ show: true });
-	}
+  }
+
+  handleZoomIn = () => {
+    this.setState({mostrar: true})
+  }
+  handleZoomOut = () => {
+    this.setState({mostrar:false})
+  }
+  
 
   inputChange = ({ target: { value, name } }) => {
     this.setState({
@@ -114,7 +125,19 @@ const dissapear = {
         <ProjectCards>
          
             <div>
-              <img src={this.props.project.academic} alt="avg"/>
+
+              <img src={this.props.project.academic} alt="avg" onClick={this.handleZoomIn}/>
+              <>
+                <Modal show={this.state.mostrar} onHide={this.handleZoomOut}>
+                  <Modal.Header closeButton>
+                      <Modal.Title>Boleta</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                  <img src={this.props.project.academic} alt="avg" style={imgModal} />
+                  </Modal.Body>
+                </Modal>
+              </>
+
               <h2>Programa: {this.props.project.program}</h2>
               <small>Universidad: {this.props.project.university}</small>
               <p>Descripcion: {this.props.project.description}</p>
@@ -148,8 +171,6 @@ const dissapear = {
 					</Modal.Footer>
 				</Modal>
 			</>
-
-
             {
               context.user.role === 'Student' ?
               (<button onClick={this.toggle} style={dissapear}>Invierte</button>) : (<button onClick={this.toggle}>Invierte</button>)
