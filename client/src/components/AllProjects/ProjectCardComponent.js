@@ -14,6 +14,7 @@ const dissapear = {
   display:'none'
 }
 
+
  class ProjectCardComponent extends Component {
   
   state = {
@@ -23,7 +24,8 @@ const dissapear = {
       quantity:""
     },
     isShowing: false,
-    result: 0
+    result: 0,
+    porcentaje:0
   };
 
   handleClose = () => {
@@ -45,8 +47,9 @@ const dissapear = {
   };
 
   toggle = () => {
-  
-    this.setState({ showInvest: true, 
+    let prende = !this.state.showInvest
+
+    this.setState({ showInvest: prende, 
       form:{
         project:this.props.project,
         quantity:"0"
@@ -86,14 +89,14 @@ const dissapear = {
   }
 
   calculadora = () => {  
-    let porcentaje;
+    
     if( this.props.project.grade >=  9 &&  this.props.project.grade <= 10 ){
-      porcentaje = 3.5; 
+      this.state.porcentaje = 3.5; 
     }else if( this.props.project.grade <= 8.9 && this.props.project.grade >= 7){
-      porcentaje = 4.2;
+      this.state.porcentaje = 4.2;
     }
 
-    let rendimiento =  (1 + (porcentaje / 100))
+    let rendimiento =  (1 + (this.state.porcentaje / 100))
 
     return Number(rendimiento.toFixed(2))
 
@@ -134,7 +137,7 @@ const dissapear = {
           Aquí podrás calcular el rendimiento anual
           <label>Coloca la cantidad a invertir </label>
           <input name="pago" type="Number"  onChange={this.handleModal}/>
-          <p>Porcentaje: </p>
+          <p>Porcentaje:{this.state.porcentaje} </p>
           <p>Calificación: {this.props.project.grade}</p>
           <p>El rendimiento es de: {this.state.result}</p>
           </Modal.Body>

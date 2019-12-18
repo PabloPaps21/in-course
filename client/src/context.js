@@ -27,6 +27,7 @@ class MyProvider extends Component {
       AUTH_SERVICE.getUser()
       .then(( { data }) => {
         this.setState({loggedUser: true, user: data.user})
+        console.log('dlv', data.user)
         //Swal.fire(`Welcomeback ${this.state.formSignup.name}`, '', 'success')
       })
       .catch(err => console.log(err))
@@ -42,16 +43,34 @@ class MyProvider extends Component {
 
   handleSignup = async e => {
     e.preventDefault()
-    AUTH_SERVICE.signup(this.state.formSignup)
-    //Swal.fire(`Welcome ${this.state.formSignup.name}`, 'User created', 'success')
+    try {
+      let data = await AUTH_SERVICE.signup(this.state.formSignup)
+      console.log(data)
+      Swal.fire({
+        title:` ${this.state.formSignup.name}`, 
+        text:'User created', 
+        icon:'success',
+        type: "success"}).then(okay => {
+          if (okay) {
+           window.location.href = "/login";
+         }
+      })
+    } catch (err) {
+     console.log(err)
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'El correo ya existe'
+      })
+    }
   }
 
   handleLogin = (e, cb)=> {
     e.preventDefault()
     AUTH_SERVICE.login(this.state.loginForm)
     .then(({ data }) => { 
-      console.log(data.user.role);
       if(data.user.role === 'Student'){
+        this.setState({ loggedUser : true, user: data.user })
         return cb('/student')
       } else if (data.user.role === 'Investor'){
         this.setState({ loggedUser : true, user: data.user })
@@ -60,7 +79,12 @@ class MyProvider extends Component {
       }
     })
     .catch(err => {
-      Swal.fire('Error', 'error')
+     
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Correo o contraseña incorrectos',
+      })
     })
   }
 

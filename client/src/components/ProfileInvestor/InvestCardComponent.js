@@ -25,8 +25,9 @@ export default class InvestCardComponent extends Component {
   };
 
   toggle = () => {
+    let prende = !this.state.showUpdateForm
     this.setState({ 
-      showUpdateForm: true, 
+      showUpdateForm: prende, 
       form: {
         quantity: this.props.invest.quantity,
       }

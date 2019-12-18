@@ -3,8 +3,14 @@ const User = require ('../models/User');
 exports.signup = async (req, res, next) => {
   const user = await  User.register(
       { ...req.body }, req.body.password )
-  .catch(err => res.status(500).json({err}))
+  .then(user => res.redirect("/login"))
+  .catch(
+    err => {
+      res.status(500).json({err})
+    }
+  )
   return res.status(201).json({ user })
+  
 }
 
 exports.signupGet = (req, res) => res.render("/signup");

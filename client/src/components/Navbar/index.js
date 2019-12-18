@@ -1,6 +1,5 @@
 import React from "react";
-import { NavLink, Link } from 'react-router-dom';
-import {StyledNavbar } from '../styled-components/components';
+import {  Link } from 'react-router-dom';
 
 import { MyContext } from '../../context';
 import { withRouter } from 'react-router-dom';
@@ -26,15 +25,15 @@ function NavbarR(props) {
                   context.loggedUser ? ( 
                     context.user.role === 'Investor' ?  
 
-                    <Link exact to="/investor" className="navbar-active">
-                <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657740/inCourse/blanco_kyqbwq.png" alt="In-course" style={{ width:150 }}/>
-                </Link> :
-                  <Link exact to="/student" className="navbar-active">
-                  <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657740/inCourse/blanco_kyqbwq.png" alt="In-course" style={{ width:150 }}/>
+                  <Link  to="/investor" className="navbar-active">
+                    <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657740/inCourse/blanco_kyqbwq.png" alt="In-course" style={{ width:150 }}/>
+                  </Link> :
+                  <Link  to="/student" className="navbar-active">
+                    <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657740/inCourse/blanco_kyqbwq.png" alt="In-course" style={{ width:150 }}/>
                 </Link>              
                 ) 
                 :
-                (<Link exact to="/" className="navbar-active">
+                (<Link  to="/" className="navbar-active">
                   <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657740/inCourse/blanco_kyqbwq.png" alt="In-course" style={{ width:150 }}/>
                 </Link>)
                 }
@@ -47,20 +46,20 @@ function NavbarR(props) {
 
                   {!context.loggedUser && (
                 <>
-                  <NavLink exact to="/login" className="navbar-active" style={colorA}>
+                  <Link  to="/login" className="navbar-active" style={colorA}>
                     
                       Login
                  
                       
-                  </NavLink>
-                  <NavLink exact to="/signup" className="navbar-active" style={colorA}>
+                  </Link>
+                  <Link  to="/signup" className="navbar-active" style={colorA}>
                     Signup
-                </NavLink>
+                </Link>
                 </>
               )}
-              {context.loggedUser ? (<NavLink exact to="/allprojects" className="navbar-active">
+              {context.loggedUser ? (<Link  to="/allprojects" className="navbar-active">
                 Projects
-              </NavLink>)
+              </Link>)
               : ""
 
               }

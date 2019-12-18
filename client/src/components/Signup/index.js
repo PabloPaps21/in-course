@@ -13,7 +13,7 @@ export default function SignupContainer(props) {
       
       <StyledSignupForm onSubmit={e => {
         context.handleSignup(e)
-        props.history.push('/login')
+          //props.history.push('/login')
         }}
       >
           
