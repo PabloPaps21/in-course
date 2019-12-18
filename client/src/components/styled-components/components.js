@@ -312,8 +312,10 @@ export const InvCards = styled.div`
   }
   h1 {
     color: #FFF;
-    font-size: 18px;
-
-    
+    font-size: 18px;    
   }
+`;
+
+export const Modal = styled.div`
+  height: 500px;
 `;

@@ -4,7 +4,6 @@ import InvestService from '../../services/InvestService';
 import { withRouter } from 'react-router-dom';
 import { MyContext } from '../../context';
 
-
 const investService = new InvestService();
 const dissapear = {
   display:'none'
@@ -17,7 +16,8 @@ const dissapear = {
     showInvest: false,
     form:{
       quantity:""
-    }
+    },
+    isShowing: false
   };
 
   inputChange = ({ target: { value, name } }) => {
@@ -53,6 +53,17 @@ const dissapear = {
     this.props.history.push('/investor')
   }
 
+  openModalHandler = () => {
+    this.setState({
+      isShowing:true
+    })
+  }
+  closeModalHandler = () => {
+    this.setState({
+      isShowing:false
+    })
+  }
+
   render() {
     return (
       
@@ -72,6 +83,25 @@ const dissapear = {
               <p>Grade:{this.props.project.grade}</p>
               {/* <p>Academic: {this.props.project.academic}</p> */}
             </div>
+            
+            
+            {/* <div>
+              {
+                this.setState.isShowing ? 
+                (<div onClick={this.closeModalHandler} className="back-drop"></div>)
+                 : 
+                 ""
+              }
+              <button className="open-modal-btn" onClick={this.openModalHandler}>Open</button>
+
+              <Modal
+                className="modal"
+                show={this.state.isShowing}
+                close={this.closeModalHandler}>
+                  PAPS
+              </Modal>
+              
+            </div> */}
 
             {
               context.user.role === 'Student' ?

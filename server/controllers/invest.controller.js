@@ -42,24 +42,20 @@ exports.investDetail = async (req, res) => {
 exports.updateInvestment = async (req, res) =>{
   const { quantity } = req.body;
   const { id } = req.params;
-  const investments = await Investment.findByIdAndUpdate(id, {$inc: { quantity:quantity }});
-  res.status(200).json(investments)
+  const investment = await Investment.findById(id);
+  const difference = quantity - investment.quantity;
 
+  await Investment.findByIdAndUpdate(id, {
+    quantity
+  });
 
+  const project = await Project.findById(investment.projectId);
 
-/*
-  db.products.update(
-    { sku: "abc123" },
-    { $inc: { quantity: -2, "metrics.orders": 1 } }
-  )
+  await Project.findByIdAndUpdate(investment.projectId, {
+    actual: project.actual + difference,
+  });
 
-*/
-
-
-
-
-
-
+  res.status(200).json(investment);
 }
 
 //eliminar inversion
