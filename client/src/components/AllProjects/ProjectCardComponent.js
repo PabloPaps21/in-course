@@ -3,8 +3,17 @@ import { ProjectCards, AddInvestForm } from '../styled-components/components';
 import InvestService from '../../services/InvestService';
 import { withRouter } from 'react-router-dom';
 import { MyContext } from '../../context';
+//import CalculadoraModal from './Modal';
+//import Button from '@bit/react-bootstrap.react-bootstrap.button'
+//import Modal from '@bit/react-bootstrap.react-bootstrap.modal'
+//import ReactBootstrapStyle from '@bit/react-bootstrap.react-bootstrap.internal.style-links';
+
+import Modal from 'react-bootstrap/Modal'
+import Button from 'react-bootstrap/Button';
+
 
 const investService = new InvestService();
+
 const dissapear = {
   display:'none'
 }
@@ -17,8 +26,17 @@ const dissapear = {
     form:{
       quantity:""
     },
-    isShowing: false
+    isShowing: false,
+    result: 0
   };
+
+  handleClose = () => {
+		this.setState({ show: false });
+	}
+  
+	handleShow = () => {
+		this.setState({ show: true });
+	}
 
   inputChange = ({ target: { value, name } }) => {
     this.setState({
@@ -64,6 +82,29 @@ const dissapear = {
     })
   }
 
+  handleModal = ({ target: { value, name } }) => {
+    this.setState({
+      ...this.state,
+      result: value * this.calculadora()
+    });
+  }
+
+  calculadora = () => {  
+    let porcentaje;
+    if( this.props.project.grade >=  9 &&  this.props.project.grade <= 10 ){
+      porcentaje = 3.5; 
+    }else if( this.props.project.grade <= 8.9 && this.props.project.grade >= 7){
+      porcentaje = 4.2;
+    }
+
+    let rendimiento =  (1 + (porcentaje / 100))
+
+    return Number(rendimiento.toFixed(2))
+
+
+  }
+
+  
   render() {
     return (
       
@@ -78,30 +119,37 @@ const dissapear = {
               <h2>Programa: {this.props.project.program}</h2>
               <small>Universidad: {this.props.project.university}</small>
               <p>Descripcion: {this.props.project.description}</p>
-              <p>Tota:{this.props.project.total}</p>
+              <p>Total:{this.props.project.total}</p>
               <p>Actual: {this.props.project.actual}</p>
               <p>Grade:{this.props.project.grade}</p>
-              {/* <p>Academic: {this.props.project.academic}</p> */}
             </div>
             
             
-            {/* <div>
-              {
-                this.setState.isShowing ? 
-                (<div onClick={this.closeModalHandler} className="back-drop"></div>)
-                 : 
-                 ""
-              }
-              <button className="open-modal-btn" onClick={this.openModalHandler}>Open</button>
+            <>
+				<Button variant="primary" onClick={this.handleShow}>
+					Calculadora
+        </Button>
 
-              <Modal
-                className="modal"
-                show={this.state.isShowing}
-                close={this.closeModalHandler}>
-                  PAPS
-              </Modal>
-              
-            </div> */}
+				<Modal show={this.state.show} onHide={this.handleClose}>
+					<Modal.Header closeButton>
+						<Modal.Title>Calculadora</Modal.Title>
+					</Modal.Header>
+					<Modal.Body>
+          Aquí podrás calcular el rendimiento anual
+          <label>Coloca la cantidad a invertir </label>
+          <input name="pago" type="Number"  onChange={this.handleModal}/>
+          <p>Porcentaje: </p>
+          <p>Calificación: {this.props.project.grade}</p>
+          <p>El rendimiento es de: {this.state.result}</p>
+          </Modal.Body>
+					<Modal.Footer>
+						<Button variant="secondary" onClick={this.handleClose}>
+							Cerrar
+            </Button>
+					</Modal.Footer>
+				</Modal>
+			</>
+
 
             {
               context.user.role === 'Student' ?
