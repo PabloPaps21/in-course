@@ -1,7 +1,9 @@
 import axios from "axios";
 
 export default class InvestService {
-  baseURL="http://localhost:3000";
+  // baseURL="http://localhost:3000";
+   baseURL = "https://salty-dawn-98498.herokuapp.com";
+
   invests = axios.create({
     baseURL:this.baseURL,
     withCredentials: true
