@@ -3,10 +3,6 @@ import { ProjectCards, AddInvestForm } from '../styled-components/components';
 import InvestService from '../../services/InvestService';
 import { withRouter } from 'react-router-dom';
 import { MyContext } from '../../context';
-//import CalculadoraModal from './Modal';
-//import Button from '@bit/react-bootstrap.react-bootstrap.button'
-//import Modal from '@bit/react-bootstrap.react-bootstrap.modal'
-//import ReactBootstrapStyle from '@bit/react-bootstrap.react-bootstrap.internal.style-links';
 
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button';

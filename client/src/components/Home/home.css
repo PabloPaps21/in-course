@@ -1,0 +1,56 @@
+.funciona {
+    display:flex;
+    justify-content: space-evenly;
+    margin-bottom: 60px;
+}
+
+.text-funciona{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    font-size: 22px;
+}
+.titulo-funciona{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+.los-numeros {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top:60px;
+}
+.numeros-card> img {
+    border-radius: 50%;
+    width: 200px;
+}
+.numeros-card {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numeros-card > p { 
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+@media (min-width: 400px) and (max-width: 768px) {
+    .funciona {
+      flex-direction: column;
+      align-items: center;
+    }
+    .text-funciona{
+        width: 80%;
+        font-size: 18px;
+        padding: 15px 5px;
+        justify-content: center;
+    }
+    .funciona > img {
+        width: 60%;
+    }
+  }

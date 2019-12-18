@@ -7,13 +7,7 @@ export const StyledHome = styled.div`
     align-items: flex-start;
     flex-direction:column;
     justify-content: center;
-    width: 40%;
-    height:500px;
-    /*background-color: #FFF;*/
-    background-image: url('./oval-bg.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    height:250px;
     margin-top: 150px;
     margin:0 auto;
     padding: 0 50px;
@@ -34,8 +28,8 @@ export const StyledHome = styled.div`
     margin-top: 20px;
     width: 250px;
     height: 40px;
-    border: 1px  #c0e3be solid;
-    background-color: #c0e3be;
+    border: 1px  #2fc3b6 solid;
+    background-color: #2fc3b6;
     border-radius: 5px;
     text-align: center;
     font-size:16px;
@@ -43,18 +37,12 @@ export const StyledHome = styled.div`
     align-items: center;
     justify-content:center;
     text-decoration: none;
+    color:#FFF
   }
   a:visited {
-    color: #7b7b7b;
+    color: #FFF;
   }
-    & p{
-    width: 57%;
-    font-size: 25px;
-    margin-top: 25px;
-    margin-bottom: 75px;
-    line-height: 37px;
-    font-weight: 300;
-    }
+   
 `;
 export const StyledSignupForm = styled.form`
     display: flex;
@@ -278,21 +266,6 @@ export const AddInvestForm = styled.form`
   }
 
 `;
-
-// export const InvestCards = styled.div`
-//   width: 40%;
-//   height: 500px;
-//   margin: 5% auto;
-//   box-sizing: border-box;
-//   border-radius: 10px;
-//   -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
-//   -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
-//   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25);
-//   background-color: yellowgreen;
-// `;
-
-
-
 export const InvCards = styled.div`
   background-image: linear-gradient(to bottom, #2871e3, #3f7be4, #5286e6, #6290e6, #729ae7, #6ea2e3, #70a9de, #78afd8, #7db2ca, #89b3bd, #99b2b3, #a9b0af);
   width:25%;
@@ -316,6 +289,23 @@ export const InvCards = styled.div`
   }
 `;
 
-export const Modal = styled.div`
-  height: 500px;
+export const ComoFunciona = styled.div`
+   display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color:#FFF;
+    padding: 0 50px;
+    box-sizing: border-box;
+    height:350px;
+    margin-top:150px;
+  & div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction:column;
+    width: 50%;
+    height:600px;
+  } 
+  
 `;
