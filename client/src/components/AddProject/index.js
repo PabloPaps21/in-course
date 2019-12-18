@@ -33,7 +33,9 @@ const projectService = new ProjectService();
   handleFile = e => {
     this.setState({ file: e.target.files[0] })
   }
-
+  goAtras = () => {
+    this.props.history.goBack()
+  }
   addProject = async e => {
     e.preventDefault();
     const { form } = this.state;
@@ -109,11 +111,11 @@ const projectService = new ProjectService();
         placeholder="Total"
         />
       <button>
-        Create Project
+        Crear Proyecto
       </button>
       </FormAddProject>
-      <button>
-        back
+      <button onClick={this.goAtras}>
+        Atrás
       </button>
       </>
     )

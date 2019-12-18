@@ -13,20 +13,18 @@ const divPadre = {
 
 
 export default class LoginContainer extends React.Component {
-  componentDidMount(){
-    console.log(`CONTEXT  ${this.context}` )
-    if(!this.context.loggedUser) {
-      console.log(this.context.user);
-      return this.props.history.push('/login')
-    } else {
-        if(this.context.user.role=== 'Student'){
+
+  componentDidUpdate() {
+    if(this.context.loggedUser){
+      if(this.context.user.role === 'Student'){
           return this.props.history.push('/student')
         } else {
           return this.props.history.push('/investor')
         }
     }
-
   }
+
+
   render(){
     console.log('ya entre')
     return (

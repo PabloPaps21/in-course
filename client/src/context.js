@@ -27,8 +27,6 @@ class MyProvider extends Component {
       AUTH_SERVICE.getUser()
       .then(( { data }) => {
         this.setState({loggedUser: true, user: data.user})
-        console.log('dlv', data.user)
-        //Swal.fire(`Welcomeback ${this.state.formSignup.name}`, '', 'success')
       })
       .catch(err => console.log(err))
     }
