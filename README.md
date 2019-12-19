@@ -16,5 +16,5 @@ https://in-course.netlify.com/
 
 ## Usuarios demo
 * correo estudiante: student@gmail.com ------ contraseña: 123
-* correo inversionista: student@gmail.com ------ contraseña: 123
+* correo inversionista: investor@gmail.com ------ contraseña: 123
 
