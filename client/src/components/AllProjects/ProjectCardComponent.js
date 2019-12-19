@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ProjectCards, AddInvestForm } from '../styled-components/components';
+import { AllProjectCards, AddInvestForm } from '../styled-components/components';
 import InvestService from '../../services/InvestService';
 import { withRouter } from 'react-router-dom';
 import { MyContext } from '../../context';
@@ -11,6 +11,12 @@ const investService = new InvestService();
 
 const dissapear = {
   display:'none'
+}
+
+const bloq = {
+  cursor: 'not-allowed',
+  filter: 'grayscale(100)',
+  opacity: 0.5, 
 }
 
 const imgModal = {
@@ -71,7 +77,7 @@ const imgModal = {
   addInvest = async e => {
     e.preventDefault();
     const { form } = this.state;
-    const invest = await investService.createInvest(form)
+     await investService.createInvest(form)
     this.setState({
       form: {
         quantity:""
@@ -122,12 +128,13 @@ const imgModal = {
         {context => {
           return (
 
-        <ProjectCards>
-         
-            <div>
+        <AllProjectCards>
 
+            { this.props.project.total === this.props.project.actual ? 
+            (<div style={bloq}>
+              <h1>Inversión completa</h1>
               <img src={this.props.project.academic} alt="avg" onClick={this.handleZoomIn}/>
-              <>
+              <div className="int-card ">
                 <Modal show={this.state.mostrar} onHide={this.handleZoomOut}>
                   <Modal.Header closeButton>
                       <Modal.Title>Boleta</Modal.Title>
@@ -136,46 +143,78 @@ const imgModal = {
                   <img src={this.props.project.academic} alt="avg" style={imgModal} />
                   </Modal.Body>
                 </Modal>
-              </>
+              </div>
 
               <h2>Programa: {this.props.project.program}</h2>
               <small>Universidad: {this.props.project.university}</small>
               <p>Descripcion: {this.props.project.description}</p>
               <p>Total:{this.props.project.total}</p>
               <p>Actual: {this.props.project.actual}</p>
-              <p>Grade:{this.props.project.grade}</p>
-            </div>
-            
-            
-            <>
-				<Button variant="primary" onClick={this.handleShow}>
-					Calculadora
-        </Button>
+              <p>Calificaicón:{this.props.project.grade}</p>
 
-				<Modal show={this.state.show} onHide={this.handleClose}>
-					<Modal.Header closeButton>
-						<Modal.Title>Calculadora</Modal.Title>
-					</Modal.Header>
-					<Modal.Body>
-          Aquí podrás calcular el rendimiento anual
-          <label>Coloca la cantidad a invertir </label>
-          <input name="pago" type="Number"  onChange={this.handleModal}/>
-          <p>Porcentaje:{this.state.porcentaje} </p>
-          <p>Calificación: {this.props.project.grade}</p>
-          <p>El rendimiento es de: {this.state.result}</p>
-          </Modal.Body>
-					<Modal.Footer>
-						<Button variant="secondary" onClick={this.handleClose}>
-							Cerrar
-            </Button>
-					</Modal.Footer>
-				</Modal>
-			</>
+            </div>) : 
+            (<div>
+
+                <img src={this.props.project.academic} alt="avg" onClick={this.handleZoomIn}/>
+                <div className="int-card ">
+                  <Modal show={this.state.mostrar} onHide={this.handleZoomOut}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Boleta</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                    <img src={this.props.project.academic} alt="avg" style={imgModal} />
+                    </Modal.Body>
+                  </Modal>
+                </div>
+
+                <h2>Programa: {this.props.project.program}</h2>
+                <small>Universidad: {this.props.project.university}</small>
+                <p>Descripcion: {this.props.project.description}</p>
+                <p>Total:{this.props.project.total}</p>
+                <p>Actual: {this.props.project.actual}</p>
+                <p>Calificación:{this.props.project.grade}</p>
+
+              </div>)
+          }
+            
+            <div className="int-card">
             {
-              context.user.role === 'Student' ?
-              (<button onClick={this.toggle} style={dissapear}>Invierte</button>) : (<button onClick={this.toggle}>Invierte</button>)
-              
+              this.props.project.total === this.props.project.actual ?
+              (<Button variant="primary" onClick={this.handleShow} style={dissapear}>
+                Calculadora
+              </Button>) :
+
+              (<Button variant="primary" onClick={this.handleShow}>
+                Calculadora
+              </Button>)
+
             }
+
+              <Modal show={this.state.show} onHide={this.handleClose} >
+                <Modal.Header closeButton>
+                  <Modal.Title>Calcula el rendimiento anual</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                <label>Coloca la cantidad a invertir </label>
+                <input name="pago" type="Number"  onChange={this.handleModal}/>
+                <p className="calc">Porcentaje:{this.state.porcentaje} </p>
+                <p className="calc">Calificación estudiante: {this.props.project.grade}</p>
+                <p className="calc">El rendimiento es de: {this.state.result}</p>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="danger" onClick={this.handleClose}>
+                    Cerrar
+                  </Button>
+                </Modal.Footer>
+              </Modal>
+            </div>
+
+            <div className="inv">
+            {
+              (context.user.role === 'Student'   || this.props.project.total === this.props.project.actual) ?
+              (<button onClick={this.toggle} style={dissapear}>Invierte</button>) : (<button onClick={this.toggle} className='creaInv'>Invierte</button>)
+            }
+
             
             { this.state.showInvest ? (
               <AddInvestForm  onSubmit={this.addInvest}>
@@ -184,12 +223,15 @@ const imgModal = {
                 type="number"
                 value= {this.state.quantity}
                 onChange={this.inputChange}
+                className="inInv"
               />
-              <button>Aceptar</button>
+              <button className="aceptar">Aceptar</button>
               </AddInvestForm>
             ): "" }
+
+            </div>
     
-        </ProjectCards>
+        </AllProjectCards>
         )
         }}
       </MyContext.Consumer>

@@ -2,6 +2,15 @@ import React from 'react';
 import { MyContext  } from '../../context';
 import { StyledSignupForm } from '../styled-components/components';
 
+
+const divPadre = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height:'100vh'
+}
+
+
 export default class SignupContainer extends React.Component {
 
   componentDidUpdate() {
@@ -18,7 +27,7 @@ export default class SignupContainer extends React.Component {
     return(
       <MyContext.Consumer>
       {context => (
-        <>
+        <div style={divPadre}>
         
         <StyledSignupForm onSubmit={e => {
           context.handleSignup(e)
@@ -27,10 +36,10 @@ export default class SignupContainer extends React.Component {
         >
             
           <div>
-          <h1> Sign up</h1>
+          <h1> Regístrate</h1>
             <input
                 name="name"
-                placeholder="Name"
+                placeholder="Nombre"
                 type="text"
                 required
                 value={context.formSignup.name}
@@ -38,7 +47,7 @@ export default class SignupContainer extends React.Component {
               />
             <input
               name="email"
-              placeholder="e-mail"
+              placeholder="Correo"
               type="email"
               required
               value={context.formSignup.email}
@@ -46,7 +55,7 @@ export default class SignupContainer extends React.Component {
             />
             <input
               name="password"
-              placeholder="Password"
+              placeholder="Contraseña"
               type="password"
               required
               value={ context.formSignup.password }
@@ -54,18 +63,22 @@ export default class SignupContainer extends React.Component {
             />
             <input
               name="phone"
-              placeholder="Phone"
+              placeholder="Teléfono"
               type="text"
               value={ context.formSignup.phone}
               onChange={e => context.handleInput(e, 'formSignup')}
             />
-            <input className="radio" type="radio" name="role" value="Student" onChange={e => context.handleInput(e, 'formSignup')} /> Student
-            <input className="radio" type="radio" name="role" value="Investor"  onChange={e => context.handleInput(e, 'formSignup')}/> Investor
+            <div className="radios">
+            <label>Elige el tipo de usuario</label>
+            <br/>
+              <input className="radio" type="radio" name="role" value="Student" onChange={e => context.handleInput(e, 'formSignup')} /> Estudiante
+              <input className="radio" type="radio" name="role" value="Investor"  onChange={e => context.handleInput(e, 'formSignup')}/> Inversionista
+            </div>
   
             {context.formSignup.role === 'Student' ? (
               <input 
                   name="aboutMe"
-                  placeholder="aboutMe"
+                  placeholder="Sobre mí"
                   type= "text"
                   value={ context.formSignup.aboutMe}
                   onChange={e => context.handleInput(e, 'formSignup')}
@@ -78,12 +91,12 @@ export default class SignupContainer extends React.Component {
             
   
             <button type="primary" htmltype = "submit">
-              Signup
+              Regístrate
             </button>
          
           </div>
       </StyledSignupForm>      
-        </>
+        </div>
       )}
       </MyContext.Consumer>   
     )

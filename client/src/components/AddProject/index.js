@@ -2,12 +2,22 @@ import React, { Component } from "react";
 import ProjectService from '../../services/ProjectService';
 import { FormAddProject }  from "../../components/styled-components/components"
 
+
 const projectService = new ProjectService();
 
-
+const divPadre = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height:'100vh',
+  flexDirection:'column'
+}
+const atras ={
+  backgroundColor:'#eb4444'
+}
 
  class AddProject extends Component {
-
+  
   state = {
     file:{},
     form: {
@@ -48,8 +58,6 @@ const projectService = new ProjectService();
 
     const project = await projectService.createProject(formData)
 
-    console.log(project);
-    alert("Created!");
     this.setState({ 
       form: {
         description:"",
@@ -67,14 +75,18 @@ const projectService = new ProjectService();
 
   render(){
     return(
-      <>
+
+
+     
+      <div style={divPadre}>
+       <h1> Crea tu proyecto</h1>
       <FormAddProject onSubmit={this.addProject} >
         <input 
         name="program"
         type="text" 
         value={this.state.form.program}
         onChange={this.inputChange}
-        placeholder="Program"
+        placeholder="Programa"
         required
         />
         <input 
@@ -82,7 +94,7 @@ const projectService = new ProjectService();
         type="text" 
         value={this.state.form.university}
         onChange={this.inputChange}
-        placeholder="University"
+        placeholder="Universidad"
         required
         />
         <input className="description"
@@ -90,34 +102,36 @@ const projectService = new ProjectService();
         type="text" 
         value={this.state.form.description}
         onChange={this.inputChange}
-        placeholder="Description"
+        placeholder="Describe tu proyecto"
         required
         />
-        <label>calificacion</label>
         <input 
           name="grade"
           type="number"
           value={this.state.form.grade}
           onChange={this.inputChange}
           required
+          min="7" max="10"
+          placeholder="Última calificación (número)"
         />
-        <label>ultima boleta</label>
+        <label>Sube tu última boleta</label>
         <input onChange={this.handleFile} type="file" name="academic" required/>
         <input 
         name="total"
         type="number" 
         value={this.state.form.total}
         onChange={this.inputChange}
-        placeholder="Total"
+        placeholder="Total a  financiar (número)"
         />
       <button>
         Crear Proyecto
       </button>
-      </FormAddProject>
-      <button onClick={this.goAtras}>
+      <button onClick={this.goAtras} style={atras}>
         Atrás
       </button>
-      </>
+      </FormAddProject>
+      
+      </div>
     )
   }
 

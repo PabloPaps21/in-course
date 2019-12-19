@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import InvestService from '../../services/InvestService';
 import  {InvCards, AddInvestForm} from '../styled-components/components';
 
+
+
 const investService = new InvestService();
+
 
 export default class InvestCardComponent extends Component {
     
@@ -43,7 +46,7 @@ export default class InvestCardComponent extends Component {
 
   delInvest = async e => {
     await investService.deleteInvest(this.props.invest._id)
-    this.props.refreshData()
+    this.props.refreshData()  
   }
 
   render() {
@@ -52,15 +55,17 @@ export default class InvestCardComponent extends Component {
       <InvCards>       
           {/* <img  src="https://d1dxvryen9goi5.cloudfront.net/wp-content/uploads/2019/10/estudiante.jpg" alt="academic"/> */}
           <img src={this.props.invest.projectId.academic} alt="academic"/>
-          <h1>Nombre del programa:{this.props.invest.projectId.program}</h1>
-          <h1>Mi inversión:{this.props.invest.quantity}</h1>
+        <div className="div-hijo">
+          <h2>Nombre: {this.props.invest.projectId.program}</h2>
+          <h2>Mi inversión:{this.props.invest.quantity}</h2>
           <h2>Total del proyecto: {this.props.invest.projectId.total}</h2>
           <h2>Actual:{this.props.invest.projectId.actual}</h2>
+        </div>
 
 
 
 
-        <button onClick={this.toggle}>Update</button>
+        <button onClick={this.toggle} className='actualizar'>Actualizar</button>
         
         {
           this.state.showUpdateForm ? (
@@ -72,7 +77,7 @@ export default class InvestCardComponent extends Component {
               value= {this.state.form.quantity}
               onChange={this.inputChange}
               />
-              <button>Aceptar</button>
+              <button className='aceptar'>Aceptar</button>
             </AddInvestForm>
           )  : "" }
 
@@ -81,7 +86,7 @@ export default class InvestCardComponent extends Component {
 
 
 
-        <button onClick={this.delInvest}>Delete</button>
+        <button onClick={this.delInvest} className='delete'>Borrar</button>
       </InvCards>
       </>
     )

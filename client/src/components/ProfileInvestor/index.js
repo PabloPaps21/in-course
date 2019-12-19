@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import { StyleProfile } from '../styled-components/components';
-import { Link } from 'react-router-dom';
 import { MyContext } from '../../context';
 import InvestCardComponent from './InvestCardComponent';
 import InvestService from '../../services/InvestService';
+import './profileInvestor.css'
 
 const investService = new InvestService();
+
+// const investor = {
+//     display: 'flex',
+//     justifyContent: 'flex-start',
+//     flexDirection: 'row',
+//     width: 900,
+//     flexWrap: 'wrap'
+// }
 
 
 export default class ProfileInvestor extends Component {
@@ -21,7 +28,6 @@ export default class ProfileInvestor extends Component {
 
   async getData(){
     const { data } = await investService.getInvestments();
-    console.log(data)
     this.setState({
       invests: data.investments
     })
@@ -35,9 +41,9 @@ export default class ProfileInvestor extends Component {
     
     return (
         <MyContext.Consumer>
-        {context =><StyleProfile>
+        {context =><div className="container-profile">
+          <h1>Inversionista: {context.user.name}</h1>
         <div className="investor">
-          <h1>Investor: {context.user.name}</h1>
           
           {
             (this.state.invests) ? 
@@ -47,10 +53,8 @@ export default class ProfileInvestor extends Component {
             }) :  <h1>Aún no tienes proyectos</h1>
           
           }
-
-
         </div>
-      </StyleProfile>}
+      </div>}
       </MyContext.Consumer>
       
     )

@@ -9,6 +9,7 @@ import ProfileInvestor from  './components/ProfileInvestor'
 import AllProjects from './components/AllProjects'
 import CreateProject from './components/AddProject'
 import NavbarR from './components/Navbar'
+import FooterR from './components/footer'
 
 function Routes() {
   return(
@@ -26,6 +27,7 @@ function Routes() {
         <Route exact path="/create-project" component = {CreateProject}/>
         {/* <Route exact path="/investor" component={ProfileConainer}/> //perfil de investor */}
       </Switch>
+      <FooterR/>
     </BrowserRouter>
   )
 }

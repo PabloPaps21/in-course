@@ -1,11 +1,11 @@
 import React from 'react';
-import { StyledHome, ComoFunciona } from '../styled-components/components';
-import Carousel  from 'react-bootstrap/Carousel'
+import { StyledHome } from '../styled-components/components';
 import { Link } from  'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
-import './home.css'
+import './home.css';
 
-const imgCarousel = {minWidth:560};
+const imgCarousel = {
+  width: 560
+};
 const transbox ={
   margin: 30,
   backgroundColor: '#4a4646',
@@ -20,67 +20,43 @@ const colorA = {
 export default function Home() {
   return(
     <>
-
-<Carousel>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="https://www.up.edu.mx/sites/default/files//up_buho.jpg"
-      alt="First slide"
-      style={imgCarousel}
-    />
-    <Carousel.Caption>
-      <div style={transbox}>
-        <h3>Queremos que cumplas tus sueños</h3>
-        <Link exact to="/signup" className="navbar-active" style={colorA}> Regístrate</Link>
-      </div>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="https://d1dxvryen9goi5.cloudfront.net/wp-content/uploads/2019/03/UNAM1.jpg"
-      alt="Third slide"
-      style={imgCarousel}
-    />
-
-    <Carousel.Caption>
-    <div style={transbox}>
-      <h3>¿Ya eres miembro?</h3>
-      <Link exact to="/login" className="navbar-active" style={colorA}>Entra</Link>
-      </div>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="https://www.liderempresarial.com/wp-content/uploads/2017/06/tec-de-mty.jpg"
-      alt="Third slide"
-      style={imgCarousel}
-    />
-
-    <Carousel.Caption>
-      <div style={transbox}>
-        <h3>Persigue tus sueños, aún es tiempo</h3>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </div>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
+<div>
+  <div className="cd-section cd-section--bg-fixed">
+    <div className="recuadro">
+      <p>Alcanza todas tus metas, que nada te detenga.</p>
+      <p className="link-menor"><Link to="/signup" className="btn-regis">Regístrate aquí</Link></p>
+    </div>
+  </div>
+</div>
 
 
 <div className='titulo-funciona'>
 <h1>¿Cómo funciona?</h1>
 </div>
 <div className="funciona">
-  
-  <img src='https://res.cloudinary.com/djgqc9rrx/image/upload/v1576649706/inCourse/study_w1kjfm.svg' alt="img"/>
- 
-  <div className="text-funciona">
-    <p>
-      Conectamos a personas que necesitan pagar sus estudios con personas que quieren invertir su dinero.
-    </p>
-
+  <div className="instrucciones">
+    <img src='https://previews.123rf.com/images/apinan/apinan1610/apinan161000023/67247674-conexi%C3%B3n-de-red-social-para-el-concepto-de-fondo-de-negocios-en-l%C3%ADnea.jpg' alt="img"/>
+    <div className="text-funciona">
+      <p>
+        Conectamos a personas que necesitan pagar sus estudios con personas que buscan invertir su dinero.
+      </p>
+    </div>
+  </div>
+  <div className="instrucciones">
+    <div className="text-funciona flex-item">
+      <p>
+        Crea un proyecto en donde especifiques el programa que te gustaría estudiar
+      </p>
+    </div>
+    <img src='https://res.cloudinary.com/djgqc9rrx/image/upload/v1576649706/inCourse/study_w1kjfm.svg' alt="img"/>
+  </div>
+  <div className="instrucciones">
+    <img src='https://res.cloudinary.com/djgqc9rrx/image/upload/v1576649706/inCourse/study2_ykknzz.png' alt="img"  />
+    <div className="text-funciona ">
+      <p>
+        Cuéntanos tu experiencia y sigue conquistando tus metas.
+      </p>
+    </div>
   </div>
 </div>
 
@@ -91,8 +67,6 @@ export default function Home() {
           ¡Ayuda alguién a cumplir sus sueños!
         </p>
     </div>
-    
-
     <div className= "botones">
     <Link to="/signup">Regístrate</Link>
     <Link to="/login">Entra</Link>
@@ -100,50 +74,45 @@ export default function Home() {
  
   </StyledHome>
 
-
-  <div className="instrucciones">
-
-
-  </div>
-
-
-  <div className="logo">
-    paps
-    <img src='' alt='' />
-  </div>
-
+  
   <div className="los-numeros">
     <div className="numeros-card">
       <img src='https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657701/inCourse/usr_t7fhmx.png' alt='numeros'/>
       <p>El numero de usuarios va creciendo</p>
     </div>
     <div  className="numeros-card">
-      <img src='https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657889/inCourse/sales_ffytbg.png' alt='numeros'/>
-      <p>Haz crecer tu dinero </p>
-    </div>
-    <div  className="numeros-card">
       <img src='https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657692/inCourse/confianza-png-4_ee11co.png' alt='numeros'/>
       <p>Brinda apoyo a quien lo necesita</p>
     </div>
+    <div  className="numeros-card">
+      <img src='https://res.cloudinary.com/djgqc9rrx/image/upload/v1576657889/inCourse/sales_ffytbg.png' alt='numeros'/>
+      <p>Haz crecer tu dinero </p>
+    </div>
+  </div>
+
+  <div className="mid-logo">
+    <img src='https://res.cloudinary.com/djgqc9rrx/image/upload/v1576573185/inCourse/Incourse-logo_khauti.png' alt='' />
+  </div>
+
+  <div className="rendimiento">
+    <p>Ofrecemos un rendimiento que va del 3.5% al 4.2% (en función del promedio del alumno) anual, en plazos de hasta 4 años</p>
   </div>
 
 
   <div className="testimonios">
-    <div>
-      <img src=""  alt="graduados"/>
-      <p></p>
+    <div className="card-testimonio">
+      <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576723494/inCourse/WhatsApp_Image_2019-12-18_at_8.20.29_PM_ljeg4o.jpg"  alt="graduados"/>
+      <div className="cita"><q>Gracias a In-course pude cumplir mi sueño de convertirme en diseñadora, ahora mis trajes de baño son de los más vendidos.</q> <small>-Erika</small></div>
+    </div>
+    <div className="card-testimonio">
+      <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576734219/inCourse/WhatsApp_Image_2019-12-18_at_9.17.42_PM_uohivz.jpg"  alt="graduados"/>
+      <div className="cita"><q>Al perder mi beca me sentí perdida, no tenía como pagar la uni, hasta que encontré In-course y ahora soy ingeniera.</q> <small>-Melisa</small></div>
+    </div>
+    <div className="card-testimonio">
+      <img src="https://res.cloudinary.com/djgqc9rrx/image/upload/v1576734512/inCourse/grad_tgocuz.jpg"  alt="graduados"/>
+      <div className="cita"><q>Por un momento creí que no lograría estudiar una carrera, ahora voy por la maestría. Gracias In-course</q> <small>-Pablo</small></div>
     </div>
   </div>
-  
-
-
-
-
-
-
-
-
-
     </>
   )
 }

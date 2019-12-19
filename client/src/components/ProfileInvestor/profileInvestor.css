@@ -1,0 +1,46 @@
+.container-profile {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+.actualizar {
+    background-color: #f5bd22;
+    border-radius: 5px;
+    border: 1px solid #f5bd22;
+}
+.delete {
+    background-color: #eb4444; 
+    margin-top: 20px; 
+    border-radius: 5px;
+    color:#FFF;
+    border: 1px solid #eb4444;
+}
+.aceptar {
+    background-color: #2fc3b6; 
+    margin-top: 20px; 
+    border-radius: 5px;
+    color:#FFF;
+    border: 1px solid #2fc3b6
+}
+.div-hijo{
+    width: 100%;
+    padding: 0 15px;
+}
+.investor {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 900px;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 350px) and (max-width: 768px) {
+.investor {
+    justify-content: center;
+    flex-direction: column;
+    width: 384px;
+    margin: 20px 0;
+    }
+}

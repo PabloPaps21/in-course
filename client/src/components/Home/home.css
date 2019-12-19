@@ -2,6 +2,7 @@
     display:flex;
     justify-content: space-evenly;
     margin-bottom: 60px;
+    flex-wrap: wrap;
 }
 
 .text-funciona{
@@ -10,21 +11,34 @@
     justify-content: center;
     width: 30%;
     font-size: 22px;
+    padding: 0 20px;
+    text-align: justify;
 }
 .titulo-funciona{
     display: flex;
     justify-content: center;
     margin-top: 60px;
+    /*color: #020242;*/
+}
+.instrucciones > img {
+    width: 250px;
+}
+.instrucciones {
+    display:flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin: 30px 0 ;
 }
 .los-numeros {
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     width: 100%;
     margin-top:60px;
 }
 .numeros-card> img {
     border-radius: 50%;
-    width: 200px;
+    width: 180px;
 }
 .numeros-card {
     width: 25%;
@@ -33,13 +47,116 @@
     flex-direction: column;
     align-items: center;
 }
-
 .numeros-card > p { 
     font-size: 18px;
     margin-top: 20px;
+    text-align: center;
 }
+.testimonios {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+.card-testimonio {
+    display: flex;
+    width: 30%;
+    height: 400px;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 30px;
 
-@media (min-width: 400px) and (max-width: 768px) {
+}
+.card-testimonio > img {
+    width: 100px;
+    max-width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    max-height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+}
+.cita {
+    width: 80%;
+    text-align: justify;
+    margin-left: 20px;
+}
+.mid-logo{
+    display: flex;
+    justify-content: center;
+    margin-top:80px;
+}
+.mid-logo > img {
+    width: 400px;
+}
+.cd-section {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+  .cd-section--bg-fixed {
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+  .cd-section:nth-child(1) {
+    background-image: url("https://tec.mx/sites/default/files/styles/header_full/public/2018-01/MIT.jpg?itok=CZIueteC");
+    opacity: 0.7;
+  }
+  .recuadro{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    position: absolute;
+    z-index: 999;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%; 
+    text-align: center;
+    width: 60%;
+    padding: 20px;
+    color:#04072b;
+    font-size: 30px;
+    font-weight: 700;
+    background-color:rgba(191, 180, 180, 0.5);
+  }
+  .link-menor {
+    margin-top: 20px;
+    width: 250px;
+    height: 40px;
+    border: 1px  #2fc3b6 solid;
+    background-color: #2fc3b6;
+    border-radius: 5px;
+    text-align: center;
+    font-size:16px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    text-decoration: none;
+    color:#FFF;
+    margin:auto;
+  }
+    a:visited {
+    color:#FFF;
+  }
+  .rendimiento {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .rendimiento > p {
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    text-align: justify;
+    
+  }
+@media (min-width: 350px) and (max-width: 768px) {
     .funciona {
       flex-direction: column;
       align-items: center;
@@ -49,8 +166,36 @@
         font-size: 18px;
         padding: 15px 5px;
         justify-content: center;
+        margin-top: 20px;
     }
     .funciona > img {
         width: 60%;
     }
+    .los-numeros{
+        flex-direction: column;
+        align-items: center;
+    }
+    .numeros-card {
+        width: 60%;
+    } 
+    .card-testimonio {
+        flex-direction: column;
+        width: 90%;
+    }
+    .numeros-card > img {
+        width:150px;
+    }
+    .instrucciones {
+        flex-direction: column;
+        align-items: center;
+    }
+    .link-menor{
+        width: 200px;
+    }
+    .rendimiento {
+        margin:auto;
+        width: 90%;
+    }
+    .flex-item:nth-of-type(1) { order: 2; }
+    .flex-item:nth-of-type(3) { order: 1; }
   }

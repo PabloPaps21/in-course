@@ -1,0 +1,83 @@
+.container-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+    justify-content: center;
+}
+.creaInv{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #f5bd22;
+    border-radius: 5px;
+    border: 1px solid #f5bd22;
+}
+.inv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.inInv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    border: 1px solid #A3FFF6;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #f6f6f6;
+    margin-bottom: -20px;
+
+}
+.aceptar {
+    background-color: #2fc3b6; 
+    border-radius: 5px;
+    color:#FFF;
+    border: 1px solid #2fc3b6
+}
+
+.dummmie {
+    background-color: cyan;
+}
+
+input {
+    margin-top: 10px;
+    border: 1px solid #A3FFF6;
+    border-radius: 5px;
+    width: 100%;
+    height:40px;
+    background-color: #f6f6f6;
+}
+label {
+    font-size: 18px;
+}
+.calc {
+    font-size: 18px;
+    
+}
+
+.int-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+}
+.investor {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 900px;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 350px) and (max-width: 768px) {
+    .investor {
+        justify-content: center;
+        flex-direction: column;
+        width: 384px;
+        margin: 50px 0;
+        }
+    }

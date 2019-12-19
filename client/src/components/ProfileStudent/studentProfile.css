@@ -1,0 +1,25 @@
+.container-profile {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 150px;
+}
+.container-profile >  a {
+    margin-top: 20px;
+    width: 250px;
+    height: 40px;
+    border: 1px  #2fc3b6 solid;
+    background-color: #2fc3b6;
+    border-radius: 5px;
+    text-align: center;
+    font-size:16px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    text-decoration: none;
+    color:#FFF
+  }
+  a:visited {
+    color: #FFF;
+  }

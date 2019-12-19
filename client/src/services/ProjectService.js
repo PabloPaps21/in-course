@@ -13,12 +13,11 @@ export default class ProjectService {
     //lista proyectos
     async getProjects(){
         const p = await this.projects.get('/api/project')
-        console.log(p)
         return p
     }
     //crear proyecto
     createProject(data){
-        console.log(data);
+    
         return this.projects.post("/api/project", data);
     }
     //proyecto-detalle

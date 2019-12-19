@@ -13,13 +13,13 @@ const colorA = {
   marginRight: 10 
 }
 
+
 function NavbarR(props) {
-    console.log(props)
     return (
       <MyContext.Consumer>
         {context => {
           return (
-            <Navbar style={navbar} expand="lg">
+            <Navbar style={navbar} expand="lg"  fixed="top">
               <Navbar.Brand href="#home">
                 {
                   context.loggedUser ? ( 

@@ -43,7 +43,6 @@ class MyProvider extends Component {
     e.preventDefault()
     try {
       let data = await AUTH_SERVICE.signup(this.state.formSignup)
-      console.log(data)
       Swal.fire({
         title:` ${this.state.formSignup.name}`, 
         text:'User created', 
@@ -54,7 +53,6 @@ class MyProvider extends Component {
          }
       })
     } catch (err) {
-     console.log(err)
       Swal.fire({
         icon: 'error',
         title: 'Oops...',

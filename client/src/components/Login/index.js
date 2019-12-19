@@ -26,7 +26,6 @@ export default class LoginContainer extends React.Component {
 
 
   render(){
-    console.log('ya entre')
     return (
       <MyContext.Consumer>
         { context => (
@@ -42,7 +41,7 @@ export default class LoginContainer extends React.Component {
             <h1>Entra.</h1>
             <input
               name="email"
-              placeholder="e-mail"
+              placeholder="correo"
               type="email"
               required
               value={context.loginForm.email}
@@ -50,7 +49,7 @@ export default class LoginContainer extends React.Component {
             />
             <input
               name="password"
-              placeholder="Password"
+              placeholder="Contraseña"
               type="password"
               required
               value={ context.loginForm.password }
@@ -58,10 +57,10 @@ export default class LoginContainer extends React.Component {
             />
 
           <button htmltype = "submit">
-            Login
+            Entra
           </button>
           
-            <p>¿Aún no tienes cuenta?  <Link to="/signup">Regístrate aquí</Link></p>  
+            <p>¿Aún no tienes cuenta?  <Link to="/signup" className="reg-here">Regístrate aquí</Link></p>  
             </div>
           </StyledLoginForm>
           </div>
