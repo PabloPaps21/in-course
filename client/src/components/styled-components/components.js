@@ -345,10 +345,10 @@ export const InvCards = styled.div`
   h2 {
     font-size: 16px;
   }
-      /* @media  (min-width: 400px) and (max-width: 768px) {
-      width: 40%;
-      margin-left: 273px;
-  } */
+  @media  (min-width: 400px) and (max-width: 768px) {
+      width: 100%;
+      
+  } 
 `;
 
 export const ComoFunciona = styled.div`
