@@ -276,7 +276,7 @@ export const AllProjectCards = styled.div`
   border: 1px solid #2fc3b6;
   background-color:#e8e8e8;
   width: 40%;
-  height: 512px;
+  height: 560px;
   display:flex;
   margin: 2%;
   justify-content:center;
@@ -288,7 +288,7 @@ export const AllProjectCards = styled.div`
     margin: auto;
     text-align: center;
     display: block;
-    width:150px;
+    width:100px;
   }
   p {
     padding: 0 15px;
