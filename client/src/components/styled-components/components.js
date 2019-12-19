@@ -302,7 +302,7 @@ export const AllProjectCards = styled.div`
   img {
     max-width:150px;
   }
-  @media  (min-width: 370px) and (max-width: 768px) {
+  @media  (min-width: 360px) and (max-width: 768px) {
       width: 80%;
       margin-left:40px;
       margin-top:100px;
@@ -345,7 +345,7 @@ export const InvCards = styled.div`
   h2 {
     font-size: 16px;
   }
-  @media  (min-width: 370px) and (max-width: 768px) {
+  @media  (min-width: 360px) and (max-width: 768px) {
     width: 95%;
     margin-left: 10px;
   } 
