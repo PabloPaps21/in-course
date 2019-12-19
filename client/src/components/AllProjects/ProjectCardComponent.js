@@ -130,7 +130,7 @@ const imgModal = {
 
         <AllProjectCards>
 
-            { this.props.project.total === this.props.project.actual ? 
+            { (this.props.project.total <= this.props.project.actual) ? 
             (<div style={bloq}>
               <h1>Inversión completa</h1>
               <img src={this.props.project.academic} alt="avg" onClick={this.handleZoomIn}/>
@@ -179,7 +179,7 @@ const imgModal = {
             
             <div className="int-card">
             {
-              this.props.project.total === this.props.project.actual ?
+              (this.props.project.total <= this.props.project.actual) ?
               (<Button variant="primary" onClick={this.handleShow} style={dissapear}>
                 Calculadora
               </Button>) :
@@ -211,7 +211,7 @@ const imgModal = {
 
             <div className="inv">
             {
-              (context.user.role === 'Student'   || this.props.project.total === this.props.project.actual) ?
+              (context.user.role === 'Student'   || (this.props.project.total <= this.props.project.actual)) ?
               (<button onClick={this.toggle} style={dissapear}>Invierte</button>) : (<button onClick={this.toggle} className='creaInv'>Invierte</button>)
             }
 
