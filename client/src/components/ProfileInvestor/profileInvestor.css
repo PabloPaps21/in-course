@@ -35,12 +35,15 @@
     width: 900px;
     flex-wrap: wrap;
 }
+.encabezado {
+    margin-left: 16px;
+}
 
 @media (min-width: 350px) and (max-width: 768px) {
 .investor {
     justify-content: center;
     flex-direction: column;
-    width: 384px;
+    width: 370px;
     margin: 20px 0;
     }
 }

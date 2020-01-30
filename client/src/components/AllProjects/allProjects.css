@@ -77,7 +77,9 @@ label {
     .investor {
         justify-content: center;
         flex-direction: column;
-        width: 384px;
-        margin: 50px 0;
+        width: 370px;
+        margin: 20px 0;
     }
 }
+
+

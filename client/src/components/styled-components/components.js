@@ -275,7 +275,7 @@ export const ProjectCards = styled.div`
 export const AllProjectCards = styled.div`
   border: 1px solid #2fc3b6;
   background-color:#e8e8e8;
-  width: 40%;
+  width: 46%;
   height: 560px;
   display:flex;
   margin: 2%;

@@ -42,7 +42,7 @@ export default class ProfileInvestor extends Component {
     return (
         <MyContext.Consumer>
         {context =><div className="container-profile">
-          <h1>Inversionista: {context.user.name}</h1>
+          <h1 className="encabezado">Inversionista: {context.user.name}</h1>
         <div className="investor">
           
           {
